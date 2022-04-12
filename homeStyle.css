@@ -1,58 +1,63 @@
 @import url(https://fonts.googleapis.com/css?family=Merienda);
 
 body{
-    background-image: linear-gradient(to right, #c1cf7f, #6ee978);
+    background-image: linear-gradient(to right, #efefef, #1876f2);
+   
 }
 
 .header{
-   
-    text-align: center;
+   text-align: center;
+}
+
+.header > img{
+    opacity: 0.8;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -10px;
 }
 
 .main{
-    float: left;
+    float:left;
     width: 100%;
 }
 
-.footer{
+.main > h1{
     text-align: center;
-    padding: 50px;
-    
-}
-
-.footer > footer{
-    padding: 50px;
+    color: rgb(0, 0, 0);
+    font-family: "Merienda", "sans";
+    font-size: 80px;
 }
 
 .main > p{
     text-align: center;
     font-family: "Merienda", "sans";
-    font-size: 100px;
+    font-size: 20px;
 }
 
 button{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    border-radius : 25px;
-    background-color: aqua;
+    margin-top: 40px;
+    margin-bottom: 50px;;
+    border-radius : 10px;
+    background-color: #553d67;
     text-align: center;
     font-size:15px;
 }
 
 button:hover{
-    border-radius : 25px;
-    background-color: rgb(40, 179, 179);
-    
-    font-size:25px;
+    border-radius : 15px;
+    background-color: #99738E;
+    font-size:20px;
+}
+   
+.footer{
+    text-align: center;   
+    /*margin: 100px 100px; */
 }
 
-.center {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  }
-   
+/*.footer > footer{
+    
+}*/
