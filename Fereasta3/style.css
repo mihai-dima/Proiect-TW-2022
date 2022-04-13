@@ -17,21 +17,23 @@ nav{
     z-index: 100;
 }
 .logo{
-    width: 160px;
-    margin-right: 45px;
+    width: 80px;
+    margin-right: 25px;
 }
 .nav-left, .nav-right{
     display: flex;
     align-items: center;
 }
+
+
 .nav-left ul li{
     list-style: none;
     display: inline-block;
 }
 .nav-left ul li img{
-    width: 27px;
-    margin: 0 15px;
-    height: 26px;
+    width: 20px;
+    margin: 0 10px;
+    height: 20px;
 }
 
 .nav-user-icon img{
@@ -65,14 +67,14 @@ nav{
 }
 .left-sidebar{
     background: #cbdffa;
-    flex-basis: 25%;
+    flex-basis: 20%;
     position: sticky;
     top: 70px;
     align-self: flex-start;
     height: 100vh;
 }
 .right-sidebar{
-    background: #cbdffa;
+   
     flex-basis: 25%;
     position: sticky;
     top: 70px;
@@ -81,4 +83,79 @@ nav{
 }
 .main-content{
     flex-basis: 47%;
+}
+.imp-links a{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #626262;
+    width: fit-content;
+    margin-top: 20px;
+}
+.imp-links a img{
+    width: 40px;
+    margin-right:15px ;
+    margin-left: 30px;
+}
+
+
+.settings-menu{
+   position: absolute;
+    width: 90%;
+    max-width: 300px;
+    height: 300px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    top: 108%;
+    right: 5%;
+    max-height: 0;
+    transition: max-height 0.3s;
+}
+.settings-menu-height{
+    max-height: 300px;
+}
+.user-profile{
+    display: flex;
+    align-items: center;
+    margin: 15px 10;
+}
+.seeAcount-icon{
+    align-items: center;
+    width: 35px;
+    margin-right: 15px;
+}
+
+.user-profile a{
+    text-decoration: none;
+    font-size: 20px;
+    color:cornflowerblue;
+}
+
+.settings-menu-inner{
+    padding: 20px;
+}
+.settings-menu hr{
+    border: 0;
+    height: 1px;
+    background: #9a9a9a;
+    margin: 15px 0;
+}
+.settings-links{
+    display: flex;
+    align-items: center;
+    margin: 15px 10;
+}
+.logout-icon{
+   width: 38px;
+   margin-right: 15px;
+}
+.settings-links a{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    color: #626262;
 }

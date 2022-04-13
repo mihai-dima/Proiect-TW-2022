@@ -6,7 +6,7 @@
 .hero{
     height:100%;
     width: 100%;
-    background-image: linear-gradient(rgba(180, 125, 125, 0.4),rgba(243, 161, 161, 0.4)),url(banner.jpg) ;
+    background-image:url(back8.jpeg) ;
     background-position: center;
     background-size:cover;
     position:absolute;
@@ -19,18 +19,19 @@
     margin: 6% auto;
     background: rgb(245, 241, 241);
     padding: 5px;
+    overflow:hidden;
 }
 
 .bottom-box{
-    width: 250px;
-    height: 35 px auto;
+    width: 200px;
+    height: 15 px auto;
     position: relative;
-    box-shadow: 0 0 20px 9px #9d70621f;
+    box-shadow: 0 0 20px 9px #4b5e9a1f;
     border-radius: 30 px;
 }
 
 .toggle-btn{
-    padding: 10px 30px;
+    padding: 20px 60px;
     cursor: pointer;
     background: transparent;
     border: 0;
@@ -42,30 +43,55 @@
 top: 0;
 left: 0;
 position:absolute;
-width: 110px;
+width: 120px;
 height: 10%;
-background: linear-gradient(to right, #df8ba7, #d0c8b7);
+background: linear-gradient(to right, #958bdf, #bab7d0);
 border-radius: 30px;
 transition: 0.5s;
+}
+
+.social-icons{
+    margin: 40px auto;
+    text-align:center;
+}
+
+.social-icons img{
+    width:80px;
+    margin:0 12px;
+    cursor: pointer ;
+    border-radius:80%;
 }
 
 .input-group{
     top:180px;
     position: absolute;
-    width: 180px;
+    width: 210px;
     transition: .5s;
 }
 
 .input-field{
-    width: 100px;
+    width: 150px;
     padding: 10px 0;
-    margin: 5px 0;
+    margin: 0px 0;
     border-left: 0;
     border-top: 0;
     border-right: 0;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid rgb(153, 153, 153);
     outline: none;
     background: transparent;
+}
+
+.submit-btn{
+    width: 85%;
+    padding: 10px 40px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: linear-gradient(to right, #9e85c3, #c2c1d4);
+    border: 0;
+    outline: none;
+    border-radius: 70px;
+
 }
 
 .submit-box{
@@ -74,28 +100,28 @@ transition: 0.5s;
     cursor: pointer;
     display: block;
     margin: auto;
-    background: linear-gradient(to right, #ff105f, #ffad06);
+    background: linear-gradient(to right, #8010ff, #4806ff);
     border: 0;
     outline: none;
     border-radius: 30px;
 }
 
 .check-box{
-    margin: 30px 10px 30px 0; 
+    margin: 10px 50px 50px 250; 
 }
 
 span{
     color:#777;
     font-size: 12px;
-    bottom:68px;
+    bottom:85px;
     position: absolute;
 
 }
 
 #login{
-    left:50px;
+    left:80px;
 }
 
 #register{
-    left:450px;
+    left:720px;
 }
