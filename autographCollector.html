@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Autograph Collector</title>
-<link rel="stylesheet" href="style.css" >
+<link rel="stylesheet" href="stylepg.css" >
 </head>
 <body>
 
@@ -16,7 +16,7 @@
         <ul>
             <li><img src="images/notificari.png"></li>
            <!-- <li><img src="images/myaccount.jpg"></li> -->
-            <li><img src="images/home.png"></li>
+            <li><img src="images/home.png" onclick="window.location.href = 'autographCollector.html';"></li>
         </ul>
     </div>
     <div class="nav-right">
@@ -35,12 +35,12 @@
         <div class="settings-menu-inner">
           <div class="user-profile">
               <img src="images/seeAccount.png" class="seeAcount-icon" >
-              <a href="#">See your profile</a>
+              <a href="#" onclick="window.location.href = 'myAccount.html';">See your profile</a>
           </div>
           <hr>
           <div class="settings-links">
               <img src="images/logout.png" class="logout-icon">
-              <a href="#">Logout <img src="images/arrow.png" width="6px"></a>
+              <a href="#" onclick="window.location.href = 'login.html';">Logout <img src="images/arrow.png" width="6px"></a>
           </div>
         </div>
     </div>
