@@ -242,17 +242,18 @@ nav{
 .add-post-links{
     display: flex;
     margin-top: 10px;
+    margin-right: auto;
 }
 .add-post-links a{
     text-decoration: none;
     display: flex;
     align-items: center;
     color: #626262;
-    margin-right: 30px;
+    margin: auto;
     font-size: 13px;
 }
 .add-post-links a img{
     width: 20px;
-    margin-right: 10px;
-    margin-left: 60px;
+    margin-right: auto;
+    margin-left: auto;
 }
