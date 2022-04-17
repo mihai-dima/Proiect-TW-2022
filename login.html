@@ -1,6 +1,8 @@
 <html>
     <head>
-        <title> Autograph collector -- login/register</title>
+        <meta charset="UTF-8">
+        <title> Autograph collector</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
     </head>
  <body>
@@ -18,7 +20,7 @@
                 <input type="text" class="input-field" placeholder="User Id" required> 
                 <input type="password" class="input-field" placeholder="Enter Password" required> 
                 <input type="checkbox" class="chech-box"><span>Remember Password</span>
-                <button type="submit" class="submit-btn" >Log in</button>
+                <button type="submit" id="submit_btn" class="submit-btn" onclick="log()">Log in</button>
             </form>
             <form id="register" class="input-group">
                 <input type="text" class="input-field" placeholder="User Id" required> 
@@ -26,7 +28,7 @@
                 <input type="password" class="input-field" placeholder="Enter Password" required>
                 <input type="password" class="input-field" placeholder="Confirm Password" required> 
                 <input type="checkbox" class="chech-box"><span>I agree to the terms & conditions</span>
-                <button type="submit" class="submit-btn">Register</button>
+                <button type="submit" id="register_btn" class="submit-btn" onclick="reg()">Register</button>
             </form>
     </div>
 </div>
@@ -45,6 +47,14 @@
             x.style.left="50px";
             y.style.left="450px";
             z.style.left="0";
+        }
+        function reg()
+        {
+           location.href="autographCollector.html";
+        }
+        function log()
+        {
+            location.href="autographCollector.html";
         }
     </script>
 </body>
