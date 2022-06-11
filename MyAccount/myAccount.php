@@ -1,9 +1,12 @@
+<?php
+    include_once '../includes/connDB.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Autograph Collector/Profile</title>
 <link rel="stylesheet" href="styleMyAccount.css" >
@@ -57,7 +60,7 @@
                 <img src="../images/profil.jpg" class="pd-img" >
                 <div>
                     <h3>John Green</h3>
-                    <p>Numar postari:2</p>
+                    <p>Number of posts: 2</p>
                 </div>
             </div>
         </div>
@@ -65,7 +68,7 @@
 
         </div>
     </div>
-    <div class="profile-info">
+    <!-- <div class="profile-info">
         <div class="info-col"></div>
         <div class="post-col">
             <div class="write-post-container">
@@ -85,12 +88,60 @@
                 </div>
             </div>
         </div>
+    </div> -->
+
+    <div class="center">
+         <button id="show-addAutograph">Add a new autograph</button>  
     </div>
+    <div class="popup">
+        <div class="close-btn">&times;</div>
+        <div class="form">
+            <h2>Autograph</h2>
+            <div class="form-element">
+               <label for="photo">Picture</label>
+               <input type="text" id="photo" placeholder="Add the autograph picture " required>
+            </div>
+            <div class="form-element">
+               <label for="domain">Domain</label>
+               <input type="text" id="domain" placeholder="Add autograph field " required>
+            </div>
+            <div class="form-element">
+               <label for="personality">Personality</label>
+               <input type="text" id="personality" placeholder="Add Personality" required>
+            </div>
+            <div class="form-element">
+               <label for="country">Country</label>
+               <input type="text" id="country" placeholder="Add country" required>
+            </div>
+            <div class="form-element">
+               <label for="city">City</label>
+               <input type="text" id="city" placeholder="Add city" required>
+            </div>
+            <div class="form-element">
+               <label for="time">Moment</label>
+               <input type="text" id="time" placeholder="Add moment you got it" required>
+            </div>
+            <div class="form-element">
+               <label for="object">Object</label>
+               <input type="text" id="object" placeholder="Add place on which the autograph is located " required>
+            </div>
+            <div class="form-element">
+               <label for="mentions">Special mentions</label>
+               <input type="text" id="mentions" placeholder="Add special mentions">
+            </div>
+            <div class="form-element">
+                 <button>Add autograph</button>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 
 
 
 <script src="script.js"></script>
+<script src="myAccount.js"></script>
+
 </body>
 </html>
