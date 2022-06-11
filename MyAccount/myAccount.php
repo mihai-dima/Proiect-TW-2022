@@ -148,8 +148,21 @@
                 </div>
              <img src="../images/autograf.webp" alt="autograf" class="post-img" onclick="openDetails()">
              <div class="post-popup">
-                 <p>Details</p>
-                 <p>more details</p>
+                 <h3 class="details">Details</h3>
+                 <h2>Domain:</h2>
+                 <p>Muzica</p>
+                 <h2>Personality:</h2>
+                 <p>Formatia Rock Beach Boys</p>
+                 <h2>Country:</h2>
+                 <p>details</p>
+                 <h2>City:</h2>
+                 <p>details</p>
+                 <h2>Moment:</h2>
+                 <p>details</p>
+                 <h2>Object:</h2>
+                 <p>Fotografie</p>
+                 <h2>Special montions:</h2>
+                 <p>details</p>
 
              </div>
             </div>
