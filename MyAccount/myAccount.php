@@ -135,6 +135,29 @@
         </div>
     </div>
 
+     <div class="profile-info">
+        <div class="info-col"></div>
+        <div class="post-col">
+            <div class="write-post-container">
+                <div class="user-profile">
+                    <img src="../images/profil.jpg" class="user-profile-img">
+                    <div>
+                        <p>John Green</p>
+                        <span>10 Iunie 2022</span>
+                    </div>
+                </div>
+             <img src="../images/autograf.webp" alt="autograf" class="post-img" onclick="openDetails()">
+             <div class="post-popup">
+                 <p>Details</p>
+                 <p>more details</p>
+
+             </div>
+            </div>
+        </div>
+    </div> 
+    
+
+
 </div>
 
 
