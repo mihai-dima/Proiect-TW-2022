@@ -61,8 +61,9 @@ nav{
     border: 0;
 }
 .container {
-    display: flex;
+    display: flex; 
     justify-content: space-between;
+    padding: 13px 5px;
     
 }
 .left-sidebar{
@@ -71,15 +72,13 @@ nav{
     position: sticky;
     top: 70px;
     align-self: flex-start;
-    height: 100vh;
 }
 .right-sidebar{
    
     flex-basis: 25%;
     position: sticky;
-    top: 70px;
+    top: 70px; 
     align-self: flex-start;
-    height: 100vh;
 }
 .main-content{
     flex-basis: 47%;
@@ -257,3 +256,52 @@ nav{
     margin-right: auto;
     margin-left: auto;
 }
+/* ---------------right-sidebar-groups------------- */
+ .custom-select {
+    width: 100px;
+    position: relative;
+    font-family: Arial;
+  }
+  
+  .custom-select select {
+    display: none;
+  }
+  .select-selected {
+    background: #ddd9f7;
+  }
+  .select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+  }
+  
+  .select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+  }
+  .select-items div,.select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+  }
+  .select-items {
+    position: absolute;
+    background:#ddd9f7;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+  .select-hide {
+    display: none;
+  }
+  .select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+  } 
