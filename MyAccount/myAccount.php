@@ -144,7 +144,8 @@ include_once '../includes/connDB.php';
         <div id="autographs">
         </div>
         <script id="feed">
-            function feed_fill() {
+            //
+            function feed_fill(userName, profileImage, autografID, autografImage, autografName) {
                 var divContainer = document.createElement('div');
                 divContainer.className = "write-post-container";
 
@@ -152,13 +153,13 @@ include_once '../includes/connDB.php';
                 divProfile.className = "user-profile";
 
                 var imgProfile = document.createElement('img');
-                imgProfile.src = "../images/profil.jpg";
+                imgProfile.src = profileImage;
                 imgProfile.className = "user-profile-img";
-
+                divProfile.appendChild(imgProfile);
+               
                 var div = document.createElement('div');
-
                 var nameParagraph = document.createElement('p');
-                var name = document.createTextNode("John Green");
+                var name = document.createTextNode(userName);
                 nameParagraph.appendChild(name);
                 div.appendChild(nameParagraph);
 
@@ -166,28 +167,55 @@ include_once '../includes/connDB.php';
                 divProfile.appendChild(div);
                 divContainer.appendChild(divProfile);
 
-
                 //autograph
                 var imgAutograph = document.createElement('img');
-                imgAutograph.src = "../images/autograf.webp";
-
-                //imgAutograph.setAtttribute("alt", "autograph");
+                imgAutograph.src = autografImage;
+                imgAutograph.alt = 'autograph';
                 imgAutograph.className = "post-img";
-                imgAutograph.onclick = function() {
-                    openDetails()
-                };
+
+                var modalName = "modal";
+                var modalID = modalName.concat(autografID);
+                imgAutograph.onclick = function(){document.getElementById(modalID).showModal()};
                 divContainer.appendChild(imgAutograph);
 
                 //var text = document.createTextNode("asda");
                 //divContainer.appendChild(text);
+                
+                var modal = document.createElement('dialog');
+                modal.id = modalID;
+                modal.className = "autograf-modal";
+                
+                //Div from modal
+                var div = document.createElement('div');
+                div.className = "modal-content";
+                div.setAttribute("method", "dialog");
+                
+                //Header - autograph name and exit button
+                var header = document.createElement('header');
+                var title = document.createElement('h3');
+                var textTitle = document.createTextNode(autografName);
+                title.appendChild(textTitle);
+                header.appendChild(title);
 
-                var divPopUp = document.createElement('div');
-                divPopUp.className = "post-popup";
+                var closeBtn = document.createElement('button');
+                var text = document.createTextNode("exit");
+                closeBtn.onclick = function(){this.closest('dialog').close('close')};
+                closeBtn.appendChild(text);              
+                header.appendChild(closeBtn);
+                //Append header to div
+                div.appendChild(header);
+                
+                //content of modal
+                var text = document.createTextNode("da ");
+                div.appendChild(text);
+                var text = document.createTextNode(autografName);
+                div.appendChild(text);
 
-                var text = document.createTextNode("da");
-                divPopUp.appendChild(text);
-
-                divContainer.appendChild(divPopUp);
+                //Append div to modal
+                modal.appendChild(div);
+                
+                //Append modal to post-container
+                divContainer.appendChild(modal);                
 
                 // Append the div to the div autographs from body
                 document.getElementById("autographs").appendChild(divContainer);
@@ -224,8 +252,12 @@ include_once '../includes/connDB.php';
         //$num_rows = mysqli_num_rows($result);
 
         for ($index = 1; $index <= 5; $index++) {
-            //echo 'merge ';
-            echo '<script id="feed"> feed_fill(); </script>';
+            echo 'merge ';
+            $title = "Test".$index;
+            $name = "King kONG";
+            $profileImg = "../images/profil.jpg";
+            $autografImg = "../images/autograf.webp";
+            echo "<script id='feed'> feed_fill('$name','$profileImg', '$index', '$profileImg', '$title'); </script>";
         }
         ?>
 

@@ -81,8 +81,10 @@ nav{
     align-self: flex-start;
 }
 .main-content{
+    top:70px;
     flex-basis: 47%;
 }
+
 .imp-links a{
     text-decoration: none;
     display: flex;
