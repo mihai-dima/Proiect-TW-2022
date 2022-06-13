@@ -258,16 +258,14 @@ nav{
     margin-right: auto;
     margin-left: auto;
 }
-/* ---------------right-sidebar-groups------------- */
- .custom-select {
+
+/*.custom-select {
     width: 100px;
-    position: relative;
+    top: 500px;
+    position:sticky;    
     font-family: Arial;
   }
   
-  .custom-select select {
-    display: none;
-  }
   .select-selected {
     background: #ddd9f7;
   }
@@ -306,4 +304,4 @@ nav{
   }
   .select-items div:hover, .same-as-selected {
     background-color: rgba(0, 0, 0, 0.1);
-  } 
+  } */

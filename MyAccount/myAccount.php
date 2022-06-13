@@ -50,7 +50,6 @@ include_once '../includes/connDB.php';
 
     </nav>
 
-
     <!----------------------Profile-page------------->
 
     <div class="profile-container">
@@ -66,10 +65,13 @@ include_once '../includes/connDB.php';
                 </div>
             </div>
             <div class="pd-right">
-
+                <div class="autograph-form">
+                    <button id="show-addAutograph">Add a new autograph</button>
+                </div>
             </div>
         </div>
-        <!-- <div class="profile-info">
+
+        <!-- <div class="profile-info"
         <div class="info-col"></div>
         <div class="post-col">
             <div class="write-post-container">
@@ -89,11 +91,9 @@ include_once '../includes/connDB.php';
                 </div>
             </div>
         </div>
-    </div> -->
+        </div> //-->
 
-        <div class="center">
-            <button id="show-addAutograph">Add a new autograph</button>
-        </div>
+
         <div class="popup">
             <div class="close-btn">&times;</div>
             <div class="form">
@@ -143,13 +143,14 @@ include_once '../includes/connDB.php';
         </div>
         <div id="autographs">
         </div>
+
         <script id="feed">
             //
             function feed_fill(userName, profileImage, autografID, autografImage, autografName) {
                 var divContainer = document.createElement('div');
                 divContainer.className = "write-post-container";
 
-                var divProfile = document.createElement("div");
+                /*var divProfile = document.createElement("div");
                 divProfile.className = "user-profile";
 
                 var imgProfile = document.createElement('img');
@@ -165,7 +166,7 @@ include_once '../includes/connDB.php';
 
                 divProfile.appendChild(imgProfile);
                 divProfile.appendChild(div);
-                divContainer.appendChild(divProfile);
+                divContainer.appendChild(divProfile);*/
 
                 //autograph
                 var imgAutograph = document.createElement('img');
@@ -175,21 +176,23 @@ include_once '../includes/connDB.php';
 
                 var modalName = "modal";
                 var modalID = modalName.concat(autografID);
-                imgAutograph.onclick = function(){document.getElementById(modalID).showModal()};
+                imgAutograph.onclick = function() {
+                    document.getElementById(modalID).showModal()
+                };
                 divContainer.appendChild(imgAutograph);
 
                 //var text = document.createTextNode("asda");
                 //divContainer.appendChild(text);
-                
+
                 var modal = document.createElement('dialog');
                 modal.id = modalID;
                 modal.className = "autograf-modal";
-                
+
                 //Div from modal
                 var div = document.createElement('div');
                 div.className = "modal-content";
                 div.setAttribute("method", "dialog");
-                
+
                 //Header - autograph name and exit button
                 var header = document.createElement('header');
                 var title = document.createElement('h3');
@@ -199,12 +202,14 @@ include_once '../includes/connDB.php';
 
                 var closeBtn = document.createElement('button');
                 var text = document.createTextNode("exit");
-                closeBtn.onclick = function(){this.closest('dialog').close('close')};
-                closeBtn.appendChild(text);              
+                closeBtn.onclick = function() {
+                    this.closest('dialog').close('close')
+                };
+                closeBtn.appendChild(text);
                 header.appendChild(closeBtn);
                 //Append header to div
                 div.appendChild(header);
-                
+
                 //content of modal
                 var text = document.createTextNode("da ");
                 div.appendChild(text);
@@ -213,9 +218,9 @@ include_once '../includes/connDB.php';
 
                 //Append div to modal
                 modal.appendChild(div);
-                
+
                 //Append modal to post-container
-                divContainer.appendChild(modal);                
+                divContainer.appendChild(modal);
 
                 // Append the div to the div autographs from body
                 document.getElementById("autographs").appendChild(divContainer);
@@ -252,15 +257,14 @@ include_once '../includes/connDB.php';
         //$num_rows = mysqli_num_rows($result);
 
         for ($index = 1; $index <= 5; $index++) {
-            echo 'merge ';
-            $title = "Test".$index;
+            //echo 'merge ';
+            $title = "Test" . $index;
             $name = "King kONG";
             $profileImg = "../images/profil.jpg";
             $autografImg = "../images/autograf.webp";
             echo "<script id='feed'> feed_fill('$name','$profileImg', '$index', '$profileImg', '$title'); </script>";
         }
         ?>
-
 
         <div class="profile-info">
             <div class="info-col"></div>

@@ -166,7 +166,7 @@ nav{
 /*-----------------my-account-page---------------*/
 
 .profile-container{
-    padding: 20px 15%;
+    padding: 20px 45px;
     color: #626262;
 }
 .cover-img{
@@ -187,6 +187,12 @@ nav{
     display: flex;
     align-items: flex-start;
 }
+
+.pd-right{
+    display: flex;
+    align-items: flex-end;
+}
+
 .pd-img{
     width: 100px;
     margin-right: 20px;
@@ -262,14 +268,14 @@ nav{
 
 /* css pentru popup formul de adaugare a unei poze */
 
-.center{
+/*.autograph-form{
     position:absolute;
     top:63%;
     left:29.3%;
     transform:translate(-70%,-50%);
-}
+}*/
 
-.center button{
+#show-addAutograph{
     padding: 10px 20px;
     font-size:15px;
     font-weight: 600;
@@ -364,15 +370,19 @@ cursor: pointer;
 
 /*------------------ postare ------------------*/
 
+.autographs{
+    display: inline-flex;
+}
+
 .write-post-container{
-    width: 60%;
-    height: 500px;
-    display: inline-block;
+    width: 400px;
+    height: 300px;
+    display: inline-flex;
     
 }
 
 .post-img{
-    width: 100%;
+    width: 95%;
     height: 90%;
     border-radius: 20px;
     margin-top: 10px;
