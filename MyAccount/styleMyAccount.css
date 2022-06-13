@@ -287,7 +287,7 @@ top:-70%;
 left:50%;
 opacity: 0; 
 transform: translate(-70%,-50%) scale(1.25);
-width:380px;
+width:450px;
 padding: 20px 30px;
 background: #958bdf;
 box-shadow: 2px 2px 5px 5px rgba(205, 173, 173, 0.15);
@@ -319,6 +319,10 @@ transition: top 0ms ease-in-out 200ms,
     cursor: pointer; 
 }
 
+.row{
+    display: flex;
+}
+
 .popup .form h2 {
     text-align: center;
     color: #222;
@@ -327,7 +331,7 @@ transition: top 0ms ease-in-out 200ms,
 }
 
 .popup .form .form-element {
-    margin: 15px 0px;
+    margin: 15px 10px;
 }
 
 .popup .form .form-element label {
@@ -346,9 +350,9 @@ transition: top 0ms ease-in-out 200ms,
 
 }
 
-.popup .form .form-element button {
+.popup .form .form-element button{
 width: 100%;
-height: 40px;
+height: 10px;
 border: none;
 outline: none;
 font-size: 15px;
@@ -360,10 +364,18 @@ cursor: pointer;
 
 /*------------------ postare ------------------*/
 
+.write-post-container{
+    width: 60%;
+    height: 500px;
+    display: inline-block;
+    
+}
+
 .post-img{
     width: 100%;
+    height: 90%;
     border-radius: 20px;
-   margin-top: 10px;
+    margin-top: 10px;
 }
 
 .user-profile span{
@@ -373,9 +385,9 @@ cursor: pointer;
 
 .post-popup{
     width: 55%;
-    background: #fff;
+    background: rgb(221, 149, 149);
     border-radius: 5px;
-    position: absolute;
+    position: sticky;
     left: 70%;
     transform: translate(-90%, -20%);
     text-align: center;

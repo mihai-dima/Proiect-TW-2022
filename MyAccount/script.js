@@ -3,7 +3,7 @@ var settingsmenu=document.querySelector(".settings-menu")
   settingsmenu.classList.toggle("settings-menu-height")
   }
 
-let popupdetails =document.querySelector(".post-popup")
+let popupdetails = document.querySelector(".post-popup")
 function openDetails(){
   popupdetails.classList.toggle("open-details"); 
 }
