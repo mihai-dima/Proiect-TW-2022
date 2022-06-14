@@ -1,50 +1,44 @@
 <?php
-
-    if(isset($_POST['addAutograph_submit']))
+if(isset($_POST['addAutograph_submit']))
     {
         require_once 'connDB.php';
-        $picture = $_POST['picture'];
-        $domain = $_POST['domain'];
-        $personality = $_POST['personality'];
-        $country = $_POST['country'];
+        $personalityID = $_POST['personalityID'];
+        $domainID = $_POST['domainID'];
+        $image = $_POST['image'];
         $city = $_POST['city'];
-        $moment = $_POST['moment'];
+        $country = $_POST['country'];
+        $time = $_POST['time'];
         $object = $_POST['object'];
-        $specialMentions = $_POST['specialMentions'];
-        
-        if(empty($picture) || empty($domain)|| empty($personality) || empty($country) || empty($city) || empty($moment) || empty($object))
+        $special_mentions = $_POST['Special_mentions'];
+
+        if(empty($personalityID) || empty($domainID)|| empty($image) || empty($city) || empty($country) || empty($time) || empty($object))
         {
-            header("Location: ../MyAccount/myAccount.php?addAutographerror=emptyfileds");
+            header("Location: ../MyAccount/myAccount.php?registererror=emptyfileds");
             exit();
         }
-        
-        elseif(!preg_match("/^[a-zA-Z]*$/", $picture))
-        {
-            header("Location: ../MyAccount/myAccount.php?addAutographerror=incorectnameformat&");
-            exit();
-        }
-        else
-        {
-            $sql = "INSERT INTO autographs (UserID,PersonalityID,Domain,Time, Object, Country, City) VALUES (?,?,?,?,?,?)";
-            $pstmt = mysqli_stmt_init($conn);
+
+        else{
+        $sql="INSERT INTO autographs (PersonalityID,DomainID,Image,City,Country,Time,Object,Special_mentions) VALUES (?,?,?,?,?,?,?,?)";
+        $pstmt = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($pstmt, $sql))
             {
-                header("Location: ../MyAccount/myAccount.php?addAutographerror=sqlerror");
+                header("Location: ../LoginAndSign-up/loginPage.php?registererror=sqlerror");
                 exit();
             }
             else
             {
                
-                mysqli_stmt_bind_param($pstmt, "sss", $picture, $domain, $personality, $country, $city, $object, $moment);
-                mysqli_stmt_execute($pstmt);
-                header("Location: ../Main/autographCollector.php");
+                header("Location: ../MyAccount/myAccount.php");
                 exit();
             }
         }
+        // -- VALUES('$personalityID','$domainID',$image','$city','$country','$time','$object','$special_mentions')";
+       
+
     }
     else
     {
         header("Location: ../MyAccount/myAccount.php");
     }
-
+        
 ?>

@@ -19,7 +19,7 @@ include_once '../includes/connDB.php';
             <img src="../images/logo.png" class="logo">
             <ul>
                 <li><img src="../images/notificari.png"></li>
-                <li><img src="../images/home.png" onclick="window.location.href = 'autographCollector.html';"></li>
+                <li><img src="../images/home.png" onclick="window.location.href = '../Main/autographCollector.php' ;"></li>
             </ul>
         </div>
         <div class="nav-right">
@@ -71,73 +71,52 @@ include_once '../includes/connDB.php';
             </div>
         </div>
 
-        <!-- <div class="profile-info"
-        <div class="info-col"></div>
-        <div class="post-col">
-            <div class="write-post-container">
-                <div class="user-profile">
-                    <img src="../images/profil.jpg" class="user-profile-img">
-                    <div>
-                        <p>John Green</p>
-                    </div>
-                </div>
-                <div class="post-input-container">
-                    <textarea rows="3" placeholder="What's on your mind?"></textarea>
-                    <div class="add-post-links">
-                        <a href="#"><img src="../images/tag.png">Category</a>
-                        <a href="#"><img src="../images/photo.png">Photo</a>
-                        <a href="#"><img src="../images/feeling.png">Feeling/Activity</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div> //-->
 
-
-        <div class="popup">
+        <div class="popup"  action="../includes/addAutographForm.php" method="post">
             <div class="close-btn">&times;</div>
             <div class="form">
                 <h2>Autograph</h2>
                 <div class="form-element">
                     <label for="photo">Picture</label>
-                    <input type="text" id="photo" placeholder="Add the autograph picture " required>
+                    <input type="text" id="photo" name="image" placeholder="Add the autograph picture " required>
                 </div>
                 <div class="row">
                     <div class="form-element">
                         <label for="domain">Domain</label>
-                        <input type="text" id="domain" placeholder="Add autograph field " required>
+                        <input type="text" id="domain" name="domainID" placeholder="Add autograph field " required>
+
                     </div>
                     <div class="form-element">
                         <label for="personality">Personality</label>
-                        <input type="text" id="personality" placeholder="Add Personality" required>
+                        <input type="text" id="personality" name="personalityID" placeholder="Add Personality" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-element">
                         <label for="country">Country</label>
-                        <input type="text" id="country" placeholder="Add country" required>
+                        <input type="text" id="country" name="country" placeholder="Add country" required>
                     </div>
                     <div class="form-element">
                         <label for="city">City</label>
-                        <input type="text" id="city" placeholder="Add city" required>
+                        <input type="text" id="city" name="city" placeholder="Add city" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-element">
                         <label for="time">Moment</label>
-                        <input type="text" id="time" placeholder="Add moment you got it" required>
+                        <input type="text" id="time" name="time" placeholder="Add moment you got it" required>
                     </div>
                     <div class="form-element">
                         <label for="object">Object</label>
-                        <input type="text" id="object" placeholder="Add place on which the autograph is located " required>
+                        <input type="text" id="object" name="object" placeholder="Add place on which the autograph is located " required>
                     </div>
                 </div>
                 <div class="form-element">
                     <label for="mentions">Special mentions</label>
-                    <input type="text" id="mentions" placeholder="Add special mentions">
+                    <input type="text" id="mentions" name="special_mentions" placeholder="Add special mentions">
                 </div>
                 <div class="form-element">
-                    <button>Add autograph</button>
+                    <button type="submit" name="addAutograph_submit">Add autograph</button>
                 </div>
             </div>
         </div>
