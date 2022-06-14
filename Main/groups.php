@@ -42,14 +42,14 @@
                              <div class="option">
                                   <input type="checkbox" class="input" id="cb2">
                                   <span class="checkmark"></span>
-                                  <span class="text">Sport</span>
+                                  <span class="text">Sports</span>
                               </div>
                            </li>
                            <li>
                              <div class="option">
                                   <input type="checkbox" class="input" id="cb3">
                                   <span class="checkmark"></span>
-                                  <span class="text">Policy</span>
+                                  <span class="text">Politics</span>
                               </div>
                            </li>
                            <li>
@@ -59,11 +59,25 @@
                                   <span class="text">Movie</span>
                               </div>
                            </li>
+                           <li>
+                             <div class="option">
+                                  <input type="checkbox" class="input" id="cb4">
+                                  <span class="checkmark"></span>
+                                  <span class="text">Culture</span>
+                              </div>
+                           </li>
+                           <li>
+                             <div class="option">
+                                  <input type="checkbox" class="input" id="cb4">
+                                  <span class="checkmark"></span>
+                                  <span class="text">Science</span>
+                              </div>
+                           </li>
                   </ul>
                </div>
           </div>
        </div>
-    <!-------------------right-sidebar----------------->
+    <!-------------------right-sidebar-----------------> 
      <div class="right-sidebar">
 
      </div>

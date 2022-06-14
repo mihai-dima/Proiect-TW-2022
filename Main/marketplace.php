@@ -14,6 +14,15 @@ session_start();
 
 <body>
     <?php include "homeBody.html"; ?>
+      <!------------------main-content------------------->
+    <div class="main-content">
+
+    </div>
+
+      <!-------------------right-sidebar-----------------> 
+      <div class="right-sidebar">
+
+</div>
     
     </div> <!--container-->
     <script src="script.js"></script>

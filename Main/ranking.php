@@ -14,6 +14,26 @@ session_start();
 
 <body>
     <?php include "homeBody.html"; ?>
+      <!------------------main-content------------------->
+    <div class="main-content">
+        
+    </div>
+    
+      <!-------------------right-sidebar-----------------> 
+      <div class="right-sidebar">
+          <div class="reports">
+             <h3>Download collection reports: </h3>
+             <button class="button rss">RSS</button>
+             <button class="button csv">CSV</button>
+             <button class="button pdf">PDF</button>
+          </div>
+          <div class="ranking">
+             <h3>Download rankings: </h3>
+             <button class="button rss">RSS</button>
+             <button class="button csv">CSV</button>
+             <button class="button pdf">PDF</button>
+          </div>
+       </div>
 
     </div> <!--container-->
     <script src="script.js"></script>
