@@ -1,9 +1,6 @@
 <?php
-    include_once '../includes/connDB.php';
+    require_once '../includes/connDB.php';
 ?>
-
-
-
 <!DOCTYPE html>
 <html>
     <head>

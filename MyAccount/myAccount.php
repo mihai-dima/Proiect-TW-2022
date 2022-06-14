@@ -1,19 +1,16 @@
 <?php
-include_once '../includes/connDB.php';
+session_start();
+require_once '../includes/connDB.php';
 ?>
-
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Autograph Collector/Profile</title>
     <link rel="stylesheet" href="styleMyAccount.css">
 </head>
-
 <body>
-
     <nav>
         <div class="nav-left">
             <img src="../images/logo.png" class="logo">
@@ -43,7 +40,10 @@ include_once '../includes/connDB.php';
                 <hr>
                 <div class="settings-links">
                     <img src="../images/logout.png" class="logout-icon">
-                    <a href="#" onclick="window.location.href = '../LoginAndSign-up/login.html';">Logout <img src="../images/arrow.png" width="6px"></a>
+                    <form action="../includes/logout.php" method="post">
+                    <button type="submit" name="logout"> Logout </button> <img src="../images/arrow.png" alt="Arrow-image" width="6px">
+                    
+                </form>
                 </div>
             </div>
         </div>
@@ -146,7 +146,8 @@ include_once '../includes/connDB.php';
 
         <script id="feed">
             //
-            function feed_fill(userName, profileImage, autografID, autografImage, autografName) {
+            function feed_fill(autografID, autografImage, personality, domain, city, country, time_obtained, object, mentions) {
+
                 var divContainer = document.createElement('div');
                 divContainer.className = "write-post-container";
 
@@ -196,7 +197,7 @@ include_once '../includes/connDB.php';
                 //Header - autograph name and exit button
                 var header = document.createElement('header');
                 var title = document.createElement('h3');
-                var textTitle = document.createTextNode(autografName);
+                var textTitle = document.createTextNode(personality);
                 title.appendChild(textTitle);
                 header.appendChild(title);
 
@@ -211,10 +212,95 @@ include_once '../includes/connDB.php';
                 div.appendChild(header);
 
                 //content of modal
-                var text = document.createTextNode("da ");
-                div.appendChild(text);
-                var text = document.createTextNode(autografName);
-                div.appendChild(text);
+                var divDetails = document.createElement('div');
+                var details = document.createElement('h3');
+                details.className = 'details';
+                var title_details = document.createTextNode('Details');
+                details.appendChild(title_details);
+                divDetails.appendChild(details);
+
+                var div_item = document.createElement('div');
+                div_item.className = "div_item";
+                var item = document.createElement('h2');
+                var item_detail = document.createTextNode('Domain');
+                var context = document.createElement('p');
+                var context_text = document.createTextNode(domain);
+                item.appendChild(item_detail);
+                context.appendChild(context_text);
+                item.appendChild(context);
+                div_item.appendChild(item)
+                divDetails.appendChild(div_item);
+
+                div_item = document.createElement('div');
+                div_item.className = "div_item";
+                item = document.createElement('h2');
+                item_detail = document.createTextNode('Personality');
+                context = document.createElement('p');
+                context_text = document.createTextNode(personality);
+                item.appendChild(item_detail);
+                context.appendChild(context_text);
+                item.appendChild(context);
+                div_item.appendChild(item)
+                divDetails.appendChild(div_item);
+
+                div_item = document.createElement('div');
+                div_item.className = "div_item";
+                item = document.createElement('h2');
+                item_detail = document.createTextNode('Country');
+                context = document.createElement('p');
+                context_text = document.createTextNode(country);
+                item.appendChild(item_detail);
+                context.appendChild(context_text);
+                item.appendChild(context);
+                div_item.appendChild(item)
+                divDetails.appendChild(div_item);
+
+
+                div_item = document.createElement('div');
+                div_item.className = "div_item";
+                item = document.createElement('h2');
+                item_detail = document.createTextNode('City');
+                context = document.createElement('p');
+                context_text = document.createTextNode(city);
+                item.appendChild(item_detail);
+                context.appendChild(context_text);
+                item.appendChild(context);
+                divDetails.appendChild(item);
+
+                div_item = document.createElement('div');
+                div.className = "div_item";
+                item = document.createElement('h2');
+                item_detail = document.createTextNode('Time of obtaining');
+                context = document.createElement('p');
+                context_text = document.createTextNode(time_obtained);
+                item.appendChild(item_detail);
+                context.appendChild(context_text);
+                item.appendChild(context);
+                divDetails.appendChild(item);
+
+                div_item = document.createElement('div');
+                div.className = "div_item";
+                item = document.createElement('h2');
+                item_detail = document.createTextNode('Object');
+                context = document.createElement('p');
+                context_text = document.createTextNode(object);
+                item.appendChild(item_detail);
+                context.appendChild(context_text);
+                item.appendChild(context);
+                divDetails.appendChild(item);
+
+                div_item = document.createElement('div');
+                div.className = "div_item";
+                item = document.createElement('h2');
+                item_detail = document.createTextNode('Special mentions');
+                context = document.createElement('p');
+                context_text = document.createTextNode(mentions);
+                item.appendChild(item_detail);
+                context.appendChild(context_text);
+                item.appendChild(context);
+                divDetails.appendChild(item);
+
+                div.appendChild(divDetails);
 
                 //Append div to modal
                 modal.appendChild(div);
@@ -250,19 +336,48 @@ include_once '../includes/connDB.php';
         </script>
 
         <?php
-        require_once '../includes/connDB.php';
+        
+        $sql = "SELECT * FROM AUTOGRAPHS WHERE USERID=?;";
+        $pstmt = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($pstmt, $sql)) {
+            header("Location: ../LoginAndSign-up/myAccount.php?get-autographs=sqlerror");
+            exit();
+        } else {
+            $userID = $_SESSION["userID"];
+            mysqli_stmt_bind_param($pstmt, "i", $userID);
+            mysqli_stmt_execute($pstmt);
+            $result = mysqli_stmt_get_result($pstmt);
+            $index = 1;
+            while ($row = mysqli_fetch_assoc($result)) {
+                //print_r($row);
 
-        //$sql = "SELECT * FROM AUTOGRAPHS";
-        //$result = mysqli_query($conn, $sql);
-        //$num_rows = mysqli_num_rows($result);
-
-        for ($index = 1; $index <= 5; $index++) {
-            //echo 'merge ';
-            $title = "Test" . $index;
-            $name = "King kONG";
-            $profileImg = "../images/profil.jpg";
-            $autografImg = "../images/autograf.webp";
-            echo "<script id='feed'> feed_fill('$name','$profileImg', '$index', '$profileImg', '$title'); </script>";
+                $id = $row["PersonalityID"];
+                $data = "SELECT NAME FROM PERSONALITY WHERE ID='$id';";
+                $result_set = mysqli_query($conn, $data);
+                if (mysqli_num_rows($result_set) > 0) {
+                    $dataa = mysqli_fetch_assoc($result_set);
+                    $title = $dataa["NAME"];
+                } else {
+                    continue;
+                }
+                $id = $row["DomainID"];
+                $data = "SELECT NAME FROM DOMAINS WHERE ID='$id';";
+                $result_set = mysqli_query($conn, $data);
+                if (mysqli_num_rows($result_set) > 0) {
+                    $dataa = mysqli_fetch_assoc($result_set);
+                    $domain = $dataa["NAME"];
+                } else {
+                    continue;
+                }
+                $autographImg = $row["Image"];
+                $city = $row["City"];
+                $country = $row["Country"];
+                $time = $row["Time"];
+                $object = $row["Object"];
+                $mentions = $row["Special_mentions"];
+                echo "<script id='feed'> feed_fill('$index', '$autographImg', '$title', '$domain', '$city', '$country', '$time', '$object', '$mentions'); </script>";
+                $index++;
+            }
         }
         ?>
 
@@ -273,10 +388,7 @@ include_once '../includes/connDB.php';
             </div>
         </div>
     </div>
-
     <script src="script.js"></script>
     <script src="myAccount.js"></script>
-
 </body>
-
 </html>
