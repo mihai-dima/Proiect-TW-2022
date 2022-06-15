@@ -40,7 +40,7 @@
                     else
                     {
                         session_start();
-                        $_SESSION[] = $row['ID'];
+                        $_SESSION["userID"] = $row['ID'];
                         header("Location: ../Main/autographcollector.php");
                     }
                 }
