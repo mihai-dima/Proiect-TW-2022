@@ -126,12 +126,12 @@ require_once '../includes/connDB.php';
 
         <script id="feed">
             //
-            function feed_fill(autografID, autografImage, personality, domain, city, country, time_obtained, object, mentions) {
-
+            function feed_fill(autografID, autografImage, personality, domain, city, country, time_obtained, object, mentions) {                
                 var divContainer = document.createElement('div');
                 divContainer.className = "write-post-container";
 
-                /*var divProfile = document.createElement("div");
+                /*
+                var divProfile = document.createElement("div");
                 divProfile.className = "user-profile";
 
                 var imgProfile = document.createElement('img');
@@ -350,12 +350,13 @@ require_once '../includes/connDB.php';
                     continue;
                 }
                 $autographImg = $row["Image"];
+                $path = "../autographs/{$autographImg}";
                 $city = $row["City"];
                 $country = $row["Country"];
                 $time = $row["Time"];
                 $object = $row["Object"];
                 $mentions = $row["Special_mentions"];
-                echo "<script id='feed'> feed_fill('$index', '$autographImg', '$title', '$domain', '$city', '$country', '$time', '$object', '$mentions'); </script>";
+                echo "<script id='feed'> feed_fill('$index', '$path', '$title', '$domain', '$city', '$country', '$time', '$object', '$mentions'); </script>";
                 $index++;
             }
         }
