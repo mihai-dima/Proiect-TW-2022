@@ -39,7 +39,7 @@ if (isset($_POST['submit-autograph'])) {
                 {
                     $photoFullName = $newPhotoName . "." . $fileActualExt;
                     $destination = '../autographs/' . $photoFullName;
-                    echo($destination);
+                    //echo($destination);
                     //searching personality and getting the id, if exists
                     $sql = "SELECT ID, DomainID FROM personality WHERE name=?;";
                     $pstmt = mysqli_stmt_init($conn);
@@ -81,7 +81,7 @@ if (isset($_POST['submit-autograph'])) {
                                 }
 
                                 //get the ID of personality
-                                $sql = "SELECT ID FROM personality WHERE name=?;";
+                                $sql = "SELECT ID, DomainID FROM personality WHERE name=?;";
                                 $pstmt = mysqli_stmt_init($conn);
                                 if (!mysqli_stmt_prepare($pstmt, $sql)) {
                                     header("Location: ../MyAccount/myAccount.php?addAutographerror=sqlerror");
@@ -92,6 +92,7 @@ if (isset($_POST['submit-autograph'])) {
                                     $result = mysqli_stmt_get_result($pstmt);
                                     if ($row = mysqli_fetch_assoc($result)) {
                                         $personalityID = $row['ID'];
+                                        $domainID = $row['DomainID'];
                                     }
                                 }
                             }
