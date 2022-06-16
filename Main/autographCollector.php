@@ -4,6 +4,7 @@ require_once '../includes/connDB.php';
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -187,6 +188,9 @@ require_once '../includes/connDB.php';
         </script>
 
         <?php
+        if (!isset($_SESSION['userID'])) {
+            echo 'You must be signed-in to see this page!';
+        } else {
             $sql = "SELECT * FROM AUTOGRAPHS WHERE USERID!=?;";
             $pstmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($pstmt, $sql)) {
@@ -238,21 +242,20 @@ require_once '../includes/connDB.php';
                     } else {
                         continue;
                     }
-                   
+
                     $autographImg = $row["Image"];
                     $city = $row["City"];
                     $country = $row["Country"];
                     $time = $row["Time"];
                     $object = $row["Object"];
                     $mentions = $row["Special_mentions"];
-                    echo "<script id='feed'> feed_fill('$userName','$profileImage','$index', '$autographImg', '$title', '$domain', '$city', 
+                    echo "<script id='feeed'> feed_fill('$userName','$profileImage','$index', '$autographImg', '$title', '$domain', '$city', 
                                                         '$country', '$time', '$object', '$mentions'); </script>";
                     $index++;
                 }
             }
+        }
         ?>
-    </div>
-    </div>
     </div>
     <!-------------------right-sidebar----------------->
     <div class="right-sidebar">

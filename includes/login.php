@@ -29,7 +29,7 @@
                 mysqli_stmt_bind_param($pstmt, "s", $email);
                 mysqli_stmt_execute($pstmt);
                 $result = mysqli_stmt_get_result($pstmt);
-                if($row =mysqli_fetch_assoc($result))
+                if($row = mysqli_fetch_assoc($result))
                 {
                     $checkPasswd = password_verify($passwd, $row['password']);
                     if(!$checkPasswd)
@@ -40,7 +40,7 @@
                     else
                     {
                         session_start();
-                        $_SESSION["userID"] = $row['ID'];
+                        $_SESSION['userID'] = $row['ID'];
                         header("Location: ../Main/autographcollector.php");
                     }
                 }
@@ -51,10 +51,11 @@
                 }
             }
         }
+        mysqli_stmt_close($pstmt);
+        mysqli_close($conn);
     }
     else
     {
         header("Location: ../LoginAndSign-up/loginPage.php");
     }
-
 ?>
