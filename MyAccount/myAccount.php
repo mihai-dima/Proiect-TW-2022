@@ -89,17 +89,27 @@ require_once '../includes/connDB.php';
                     <h2>Autograph</h2>
                     <div class="form-element">
                         <label for="photo">Picture</label>
-                        <input type="file" name="photo">
+                        <input type="file" name="photo" required>
                     </div>
                     <div class="row">
-                        <div class="form-element">
-                            <label for="domain">Domain</label>
-                            <input type="text" name="domain" placeholder="Add autograph field " required>
-                        </div>
-                        <div class="form-element">
-                            <label for="personality">Personality</label>
-                            <input type="text" name="personality" placeholder="Add Personality" required>
-                        </div>
+                        <div class="form-element" required>
+                            <label for="domain" required>Domain</label>
+                            <div class="data-list-input" required>
+                              <select class="data-list-input" required>
+                                 <option>Select a domain</option>  
+                                 <option value="Sport">Sport</option>
+                                 <option value="Politics">Politics</option>
+                                 <option value="Music">Music</option>
+                                 <option value="Movie">Movie</option>
+                                 <option value="Culture">Culture</option>
+                                 <option value="Science">Science</option>
+                              </select>
+                           </div>
+                       </div>
+                     <div class="form-element">
+                        <label for="personality">Personality</label>
+                        <input type="text" name="personality" placeholder="Add Personality" required>
+                     </div>
                     </div>
                     <div class="row">
                         <div class="form-element">
