@@ -191,4 +191,6 @@ function feed_fill(autografID, autografImage, personality, domain, city, country
             <p>details</p>
         </div>
     </div>*/
+
+    
 }
