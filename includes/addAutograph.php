@@ -5,7 +5,6 @@ if (isset($_POST['submit-autograph'])) {
     require_once 'connDB.php';
 
     $photo = $_FILES['photo'];
-    print_r($photo);
 
     $domain = $_POST['domain'];
     $personality = $_POST['personality'];
@@ -51,7 +50,6 @@ if (isset($_POST['submit-autograph'])) {
                         mysqli_stmt_execute($pstmt);
                         $result = mysqli_stmt_get_result($pstmt);
                         if ($row = mysqli_fetch_assoc($result)) {
-                            print_r($row);
                             $personalityID = $row['ID'];
                             $domainID = $row['DomainID'];
                         } else { ////get the id of domain and create new instance and get the id
@@ -121,7 +119,7 @@ if (isset($_POST['submit-autograph'])) {
                 echo "You had an error!";
             }
         }else{
-            echo "Upload e valid file!";
+            echo "Upload a valid file!";
         }
     }
 }else {
