@@ -5,8 +5,8 @@ $web_url = "http://localhost/Proiect-TW-2022/Main/ranking.php";
 $str = "<?xml version='1.0' ?>";
 $str .= "<rss version='2.0'>";
     $str .= "<channel>";
-        $str .= "<title>My website</title>";
-        $str .= "<description>My website</description>";
+        $str .= "<title>Autograph Collector</title>";
+        $str .= "<description>Site for autograph collectors</description>";
         $str .= "<language>en-US</language>";
         $str .= "<link>$web_url</link>";
  
@@ -16,9 +16,9 @@ $str .= "<rss version='2.0'>";
         while ($row = mysqli_fetch_object($result))
         {
             $str .= "<item>";
-                $str .= "<title>" . htmlspecialchars($row->productName) . "</title>";
-                $str .= "<description>" . htmlspecialchars($row->productDescription) . "</description>";
-                $str .= "<link>" . $web_url . "/product.php?id=" . $row->productCode . "</link>";
+                $str .= "<description>" . htmlspecialchars($row->DomainID) . "</description>";
+                $str .= "<title>" . htmlspecialchars($row->PersonalityID) . "</title>";
+                $str .= "<description>" . htmlspecialchars($row->Object) . "</description>";
             $str .= "</item>";
         }
  
@@ -28,3 +28,4 @@ $str .= "</rss>";
 file_put_contents("rss.xml", $str);
 header("Location: rss.xml");
 ?>
+ 
