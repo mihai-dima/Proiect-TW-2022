@@ -61,14 +61,14 @@
                            </li>
                            <li>
                              <div class="option">
-                                  <input type="checkbox" class="input" id="cb4">
+                                  <input type="checkbox" class="input" id="cb5">
                                   <span class="checkmark"></span>
                                   <span class="text">Culture</span>
                               </div>
                            </li>
                            <li>
                              <div class="option">
-                                  <input type="checkbox" class="input" id="cb4">
+                                  <input type="checkbox" class="input" id="cb6">
                                   <span class="checkmark"></span>
                                   <span class="text">Science</span>
                               </div>

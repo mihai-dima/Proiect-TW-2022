@@ -11,14 +11,14 @@ $str .= "<rss version='2.0'>";
         $str .= "<link>$web_url</link>";
  
         $conn = mysqli_connect("localhost", "root", "", "autographcollector");
-        $result = mysqli_query($conn, "SELECT * FROM autographs");
- 
+        $result = mysqli_query($conn, "SELECT Personality, Domain,COUNT(ID) as numar FROM autographs GROUP BY Personality, Domain ORDER BY Domain");
+      
         while ($row = mysqli_fetch_object($result))
         {
             $str .= "<item>";
-                $str .= "<description>" . htmlspecialchars($row->DomainID) . "</description>";
-                $str .= "<title>" . htmlspecialchars($row->PersonalityID) . "</title>";
-                $str .= "<description>" . htmlspecialchars($row->Object) . "</description>";
+                $str .= "<description> Domain: " . htmlspecialchars($row->Domain) . "</description>";
+                $str .= "<title>" . htmlspecialchars($row->Personality) . "</title>";
+                $str .= "<description> Number of autographs: " . htmlspecialchars($row->numar) . "</description>";
             $str .= "</item>";
         }
  

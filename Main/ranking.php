@@ -30,9 +30,9 @@ session_start();
           </div>
           <div class="ranking">
              <h3>Download rankings: </h3>
-             <button class="button rss" onclick="window.location.href = '../Main/Top/toprss.php';">RSS</button>
-             <button class="button csv" onclick="window.location.href = '../Main/Top/topcsv.php';">CSV</button>
-             <button class="button pdf" onclick="window.location.href = '../Main/Top/topphp.php';">PDF</button>
+             <button class="button rss" onclick="window.location.href = '../Main/Top/toprss.php?domain=Sport';">RSS</button>
+             <button class="button csv" onclick="window.location.href = '../Main/Top/topcsv.php?domain=Sport';">CSV</button>
+             <button class="button pdf" onclick="window.location.href = '../Main/Top/toppdf.php?domain=Sport';">PDF</button>
           </div>
        </div>
 
