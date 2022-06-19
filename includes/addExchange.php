@@ -12,7 +12,7 @@
         $receiveDomain = $_POST['receiveDomain'];
 
         //functie pt cautare domeniu cu parametrul nume!!!
-        $sql = "SELECT ID FROM domains WHERE name=?;";
+        /*$sql = "SELECT ID FROM domains WHERE name=?;";
         $pstmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($pstmt, $sql)) {
             header("Location: ../MyAccount/myAccount.php?addAutographerror=sqlerror");
@@ -49,11 +49,11 @@
                     header("Location: ../MyAccount/myAccount.php?addAutographerror=wrongPersonality");
                     exit(); 
                 }
-            }
+            }*/
 
             //check if user have enogh autographs
             $userID = $_SESSION['userID'];
-            $sql = "SELECT ID FROM autographs WHERE UserID='$userID' AND PersonalityID='$givePersonalityID'"; //SELECT COUNT!!
+            $sql = "SELECT ID FROM autographs WHERE UserID='$userID' AND Personality='$givePersonality' AND Domain='$giveDomain'"; //SELECT COUNT!! sql injection!!
             $result_set = mysqli_query($conn, $sql);
             $count = mysqli_num_rows($result_set);
             //echo $count;
@@ -77,19 +77,19 @@
                 //echo "rows" . $row;*/
                 if ($count >= $giveNoOfAutographs) {
 
-                    $sql = "INSERT INTO exchanges (UserID, GiveNoOfAutographs, GivePersonalityID, ReceiveNoOfAutographs, ReceivePersonality, ReceiveDomain)
-                                VALUES(?,?,?,?,?,?)";
+                    $sql = "INSERT INTO exchanges (UserID, GiveNoOfAutographs, GivePersonality, GiveDomain, ReceiveNoOfAutographs, ReceivePersonality, ReceiveDomain)
+                                VALUES(?,?,?,?,?,?, ?)";
                     $pstmt = mysqli_stmt_init($conn);
                     if (!mysqli_stmt_prepare($pstmt, $sql)) {
                         header("Location: ../MyAccount/myAccount.php?addAutographerror=sqlerror");
                         exit();
                     } else {
-                    mysqli_stmt_bind_param($pstmt, "iiiiss", $_SESSION['userID'], $giveNoOfAutographs, $givePersonalityID, 
+                    mysqli_stmt_bind_param($pstmt, "iississ", $_SESSION['userID'], $giveNoOfAutographs, $givePersonality, $giveDomain, 
                                     $receiveNoOfAutographs, $receivePersonality, $receiveDomain);
                     mysqli_stmt_execute($pstmt);
-                    echo "succes";
-                    //header("Location: ../MyAccount/myAccount.php");
-                    //exit();
+                    //echo "succes";
+                    header("Location: ../MyAccount/myAccount.php");
+                    exit();
                     }
                 }
                 else{
@@ -97,7 +97,7 @@
                     exit(); 
                 }
             //}
-        }
+        //}
     }
     
     else

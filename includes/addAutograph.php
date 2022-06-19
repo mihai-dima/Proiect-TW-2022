@@ -40,7 +40,7 @@ if (isset($_POST['submit-autograph'])) {
                     $destination = '../autographs/' . $photoFullName;
                     //echo($destination);
                     //searching personality and getting the id, if exists
-                    $sql = "SELECT ID, DomainID FROM personality WHERE name=?;";
+                    /*$sql = "SELECT ID, DomainID FROM personality WHERE name=?;";
                     $pstmt = mysqli_stmt_init($conn);
                     if (!mysqli_stmt_prepare($pstmt, $sql)) {
                         header("Location: ../MyAccount/myAccount.php?addAutographerror=sqlerror");
@@ -95,17 +95,16 @@ if (isset($_POST['submit-autograph'])) {
                                 }
                             }
                         }
-                    }
+                    }*/
                     
-                    $sql = "INSERT INTO autographs (UserID, PersonalityID, DomainID, Image, City, Country, Time, Object, Special_mentions) 
+                    $sql = "INSERT INTO autographs (UserID, Personality, Domain, Image, City, Country, Time, Object, Special_mentions) 
                             VALUES (?,?,?,?,?,?,?,?,?)";
                     $pstmt = mysqli_stmt_init($conn);
                     if (!mysqli_stmt_prepare($pstmt, $sql)) {
                         header("Location: ../MyAccount/myAccount.php?addAutographerror=sqlerror");
                         exit();
                     } else {
-
-                        mysqli_stmt_bind_param($pstmt, "sssssssss", $_SESSION['userID'], $personalityID, $row['DomainID'], $photoFullName, $city,
+                        mysqli_stmt_bind_param($pstmt, "issssssss", $_SESSION['userID'], $personality, $domain, $photoFullName, $city,
                                                 $country, $moment, $object, $specialMentions);
                         mysqli_stmt_execute($pstmt);
                         move_uploaded_file($fileTempName, $destination);
