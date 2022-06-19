@@ -17,35 +17,10 @@ if (!isset($_SESSION['userID'])) {
         while ($row = mysqli_fetch_assoc($result)) {
             //print_r($row);
 
-            $id = $row["PersonalityID"];
-            $data = "SELECT NAME FROM PERSONALITY WHERE ID='$id';";
-            $result_set = mysqli_query($conn, $data);
-            if (mysqli_num_rows($result_set) > 0) {
-                $dataa = mysqli_fetch_assoc($result_set);
-                $title = $dataa["NAME"];
-            } else {
-                continue;
-            }
-            $id = $row["DomainID"];
-            $data = "SELECT NAME FROM DOMAINS WHERE ID='$id';";
-            $result_set = mysqli_query($conn, $data);
-            if (mysqli_num_rows($result_set) > 0) {
-                $dataa = mysqli_fetch_assoc($result_set);
-                $domain = $dataa["NAME"];
-            } else {
-                continue;
-            }
-            $id = $row["PersonalityID"];
-            $data = "SELECT NAME FROM PERSONALITY WHERE ID='$id';";
-            $result_set = mysqli_query($conn, $data);
-            if (mysqli_num_rows($result_set) > 0) {
-                $dataa = mysqli_fetch_assoc($result_set);
-                $title = $dataa["NAME"];
-            } else {
-                continue;
-            }
+            $personality = $row["Personality"];
+            $domain = $row["Domain"];
             $id = $row["UserID"];
-            $data = "SELECT NAME, PROFILE_PICTURE FROM USERS WHERE ID='$id';";
+            $data = "SELECT NAME, PROFILE_PICTURE FROM USERS WHERE ID='$id';"; //sql injection!!
             $result_set = mysqli_query($conn, $data);
             if (mysqli_num_rows($result_set) > 0) {
                 $dataa = mysqli_fetch_assoc($result_set);
@@ -54,7 +29,6 @@ if (!isset($_SESSION['userID'])) {
             } else {
                 continue;
             }
-
             $autographImg = $row["Image"];
             $path = "../autographs/{$autographImg}";
             $city = $row["City"];
@@ -62,7 +36,7 @@ if (!isset($_SESSION['userID'])) {
             $time = $row["Time"];
             $object = $row["Object"];
             $mentions = $row["Special_mentions"];
-            echo "<script id='feed'> feed_fill('$userName','$profileImage','$index', '$path', '$title', '$domain', '$city', 
+            echo "<script id='feed'> feed_fill('$userName','$profileImage','$index', '$path', '$personality', '$domain', '$city', 
                                                         '$country', '$time', '$object', '$mentions'); </script> \n";
             $index++;
         }

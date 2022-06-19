@@ -380,26 +380,8 @@ require_once '../includes/connDB.php';
             $result = mysqli_stmt_get_result($pstmt);
             $index = 1;
             while ($row = mysqli_fetch_assoc($result)) {
-                //print_r($row);
-
-                $id = $row["PersonalityID"];
-                $data = "SELECT NAME FROM PERSONALITY WHERE ID='$id';"; //prepared statement!!!
-                $result_set = mysqli_query($conn, $data);
-                if (mysqli_num_rows($result_set) > 0) {
-                    $dataa = mysqli_fetch_assoc($result_set);
-                    $title = $dataa["NAME"];
-                } else {
-                    continue;
-                }
-                $id = $row["DomainID"];
-                $data = "SELECT NAME FROM DOMAINS WHERE ID='$id';";
-                $result_set = mysqli_query($conn, $data);
-                if (mysqli_num_rows($result_set) > 0) {
-                    $dataa = mysqli_fetch_assoc($result_set);
-                    $domain = $dataa["NAME"];
-                } else {
-                    continue;
-                }
+                $personality = $row["Personality"];
+                $domain = $row["Domain"];
                 $autographImg = $row["Image"];
                 $path = "../autographs/{$autographImg}";
                 $city = $row["City"];
@@ -407,7 +389,7 @@ require_once '../includes/connDB.php';
                 $time = $row["Time"];
                 $object = $row["Object"];
                 $mentions = $row["Special_mentions"];
-                echo "<script id='feed'> feed_fill('$index', '$path', '$title', '$domain', '$city', '$country', '$time', '$object', '$mentions'); </script>";
+                echo "<script id='feed'> feed_fill('$index', '$path', '$personality', '$domain', '$city', '$country', '$time', '$object', '$mentions'); </script>";
                 $index++;
             }
         }

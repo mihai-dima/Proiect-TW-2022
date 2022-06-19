@@ -16,7 +16,11 @@ session_start();
     <?php include "homeBody.html"; ?>
       <!------------------main-content------------------->
     <div class="main-content">
-
+      <div class="exchanges">
+        <?php
+          require_once 'exchanges.php';
+        ?>
+      </div>
     </div>
 
       <!-------------------right-sidebar-----------------> 
