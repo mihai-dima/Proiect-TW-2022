@@ -428,4 +428,8 @@ nav{
     display: inline-block;
   }
   .button:hover {background: #ddd9f7;}
+
+  .ExchangeID{
+      display: none;
+  }
   
