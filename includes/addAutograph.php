@@ -5,6 +5,7 @@ if (isset($_POST['submit-autograph'])) {
     require_once 'connDB.php';
 
     $photo = $_FILES['photo'];
+    print_r($photo);
 
     $domain = $_POST['domain'];
     $personality = $_POST['personality'];
@@ -40,7 +41,7 @@ if (isset($_POST['submit-autograph'])) {
                     $destination = '../autographs/' . $photoFullName;
                     //echo($destination);
                     //searching personality and getting the id, if exists
-                    /*$sql = "SELECT ID, DomainID FROM personality WHERE name=?;";
+                    $sql = "SELECT ID, DomainID FROM personality WHERE name=?;";
                     $pstmt = mysqli_stmt_init($conn);
                     if (!mysqli_stmt_prepare($pstmt, $sql)) {
                         header("Location: ../MyAccount/myAccount.php?addAutographerror=sqlerror");
@@ -50,6 +51,7 @@ if (isset($_POST['submit-autograph'])) {
                         mysqli_stmt_execute($pstmt);
                         $result = mysqli_stmt_get_result($pstmt);
                         if ($row = mysqli_fetch_assoc($result)) {
+                            print_r($row);
                             $personalityID = $row['ID'];
                             $domainID = $row['DomainID'];
                         } else { ////get the id of domain and create new instance and get the id
@@ -95,16 +97,17 @@ if (isset($_POST['submit-autograph'])) {
                                 }
                             }
                         }
-                    }*/
+                    }
                     
-                    $sql = "INSERT INTO autographs (UserID, Personality, Domain, Image, City, Country, Time, Object, Special_mentions) 
+                    $sql = "INSERT INTO autographs (UserID, PersonalityID, DomainID, Image, City, Country, Time, Object, Special_mentions) 
                             VALUES (?,?,?,?,?,?,?,?,?)";
                     $pstmt = mysqli_stmt_init($conn);
                     if (!mysqli_stmt_prepare($pstmt, $sql)) {
                         header("Location: ../MyAccount/myAccount.php?addAutographerror=sqlerror");
                         exit();
                     } else {
-                        mysqli_stmt_bind_param($pstmt, "issssssss", $_SESSION['userID'], $personality, $domain, $photoFullName, $city,
+
+                        mysqli_stmt_bind_param($pstmt, "sssssssss", $_SESSION['userID'], $personalityID, $row['DomainID'], $photoFullName, $city,
                                                 $country, $moment, $object, $specialMentions);
                         mysqli_stmt_execute($pstmt);
                         move_uploaded_file($fileTempName, $destination);
@@ -118,7 +121,7 @@ if (isset($_POST['submit-autograph'])) {
                 echo "You had an error!";
             }
         }else{
-            echo "Upload a valid file!";
+            echo "Upload e valid file!";
         }
     }
 }else {
