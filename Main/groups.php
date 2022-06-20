@@ -29,7 +29,8 @@
 <?php include "homeBody.html"; ?>
     <!------------------main-content------------------->
      <div class="main-content">
-     <div class="wrapperB">
+     <form>
+          <div class="wrapperB">
   <div class="select_wrapB">
       <ul class="default_optionB">
           <li>
@@ -40,39 +41,40 @@
       </ul>
       <ul class="select_ulB">
           <li>
-              <div class="optionB">
-                <p>Music</p>
+              <div class="optionB music">
+              <input type="button" onclick="window.location.href = '../Main/createTop.php?domain=Music';" value="Music">
               </div>
           </li>
           <li>
-              <div class="optionB">
-              <p>Sport</p>
+              <div class="optionB sport">
+              <input type="button" onclick="window.location.href = '../Main/createTop.php?domain=Sport';" value="Sport">
               </div>  
           </li>
           <li>
-              <div class="optionB">
-                <p>Politics</p>
+              <div class="optionB politics">
+              <input type="button" onclick="window.location.href = '../Main/createTop.php?domain=Politics';" value="Politics">
               </div>  
           </li>
           <li>
-            <div class="optionB">
-                <p>Movie</p>
+            <div class="optionB movie">
+            <input type="button" onclick="window.location.href = '../Main/createTop.php?domain=Movie';" value="Movie">
               </div>
           </li>
           <li>
-            <div class="optionB">
-                <p>Culture</p>
+            <div class="optionB culture">
+            <input type="button" onclick="window.location.href = '../Main/createTop.php?domain=Culture';" value="Culture">
               </div>
           </li>
           <li>
-            <div class="optionB">
-                <p>Science</p>
+            <div class="optionB science">
+            <input type="button" onclick="window.location.href = '../Main/createTop.php?domain=Science';" value="Science">
               </div>
           </li>
+          
       </ul>
   </div>
-  
-</div>
+       </div>
+</form>
        </div>
     <!-------------------right-sidebar-----------------> 
      <div class="right-sidebar">
