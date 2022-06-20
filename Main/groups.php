@@ -9,81 +9,76 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Autograph Collector</title>
     <link rel="stylesheet" href="styleMain.css" >
-    <link rel="stylesheet" href="styleGroups.css">
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <link rel="stylesheet" href="styleSelect.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+		$(document).ready(function(){
+			$(".default_optionB").click(function(){
+			  $(this).parent().toggleClass("activ");
+			})
+
+			$(".select_ulB li").click(function(){
+			  var currentele = $(this).html();
+			  $(".default_optionB li").html(currentele);
+			  $(this).parents(".select_wrapB").removeClass("activ");
+			})
+		});
+	</script>
 </head>
 <body>
 <?php include "homeBody.html"; ?>
     <!------------------main-content------------------->
      <div class="main-content">
-          <div class="wrapper">
-              <div class="select_wrap">
-                  <ul class="default_option">
-                        <li>
-                          <div class="option">
-                              <p>
-                                 <span class="count"> 0</span>
-                                 <span class="text"> Select domain</span>
-                              </p>
-                              <span class="icon">
-                                  <ion-icon class="i" name="chevron-down-outline"></ion-icon>
-                              </span>
-                           </div>
-                        </li>
-                   </ul>
-                   <ul class="select_ul">
-                         <li>
-                             <div class="option">
-                                  <input type="checkbox" class="input" id="cb1">
-                                  <span class="checkmark"></span>
-                                  <span class="text">Music</span>
-                              </div>
-                           </li>
-                           <li>
-                             <div class="option">
-                                  <input type="checkbox" class="input" id="cb2">
-                                  <span class="checkmark"></span>
-                                  <span class="text">Sports</span>
-                              </div>
-                           </li>
-                           <li>
-                             <div class="option">
-                                  <input type="checkbox" class="input" id="cb3">
-                                  <span class="checkmark"></span>
-                                  <span class="text">Politics</span>
-                              </div>
-                           </li>
-                           <li>
-                             <div class="option">
-                                  <input type="checkbox" class="input" id="cb4">
-                                  <span class="checkmark"></span>
-                                  <span class="text">Movie</span>
-                              </div>
-                           </li>
-                           <li>
-                             <div class="option">
-                                  <input type="checkbox" class="input" id="cb5">
-                                  <span class="checkmark"></span>
-                                  <span class="text">Culture</span>
-                              </div>
-                           </li>
-                           <li>
-                             <div class="option">
-                                  <input type="checkbox" class="input" id="cb6">
-                                  <span class="checkmark"></span>
-                                  <span class="text">Science</span>
-                              </div>
-                           </li>
-                  </ul>
-               </div>
-          </div>
+     <div class="wrapperB">
+  <div class="select_wrapB">
+      <ul class="default_optionB">
+          <li>
+              <div class="optionB default">
+                <p>Select domain</p>
+              </div>
+          </li>
+      </ul>
+      <ul class="select_ulB">
+          <li>
+              <div class="optionB">
+                <p>Music</p>
+              </div>
+          </li>
+          <li>
+              <div class="optionB">
+              <p>Sport</p>
+              </div>  
+          </li>
+          <li>
+              <div class="optionB">
+                <p>Politics</p>
+              </div>  
+          </li>
+          <li>
+            <div class="optionB">
+                <p>Movie</p>
+              </div>
+          </li>
+          <li>
+            <div class="optionB">
+                <p>Culture</p>
+              </div>
+          </li>
+          <li>
+            <div class="optionB">
+                <p>Science</p>
+              </div>
+          </li>
+      </ul>
+  </div>
+  
+</div>
        </div>
     <!-------------------right-sidebar-----------------> 
      <div class="right-sidebar">
 
      </div>
 </div> <!--container-->
-<script type="text/javascript" src="scriptSelect.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

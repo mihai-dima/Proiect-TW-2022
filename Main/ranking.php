@@ -13,6 +13,7 @@ $dom='Sport';
     <title>Autograph Collector</title>
     <link rel="stylesheet" href="styleMain.css">
     <link rel="stylesheet" href="styleRanking.css">
+    <link rel="stylesheet" href="styleSelect.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
 		$(document).ready(function(){
