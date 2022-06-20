@@ -80,6 +80,8 @@ session_start();
                   </div>';
           }
         }
+        mysqli_stmt_close($pstmt);
+        mysqli_close($conn);
       }
       ?>
     </div>

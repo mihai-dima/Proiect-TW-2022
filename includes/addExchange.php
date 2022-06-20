@@ -96,10 +96,11 @@
                     header("Location: ../MyAccount/myAccount.php?addAutographerror=inssuficientAutographs");
                     exit(); 
                 }
+                mysqli_stmt_close($pstmt);
+                mysqli_close($conn);
             //}
         //}
     }
-    
     else
     {
         header("Location: ../MyAccount/myAccount.php");
