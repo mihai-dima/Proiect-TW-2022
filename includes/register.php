@@ -69,7 +69,7 @@
                         mysqli_stmt_bind_param($pstmt, "sss", $fullName, $email, $hashedPassword);
                         mysqli_stmt_execute($pstmt);
                         
-                        $sql = "SELECT EMAIL FROM USERS WHERE EMAIL=?";
+                        $sql = "SELECT EMAIL, ID FROM USERS WHERE EMAIL=?";
                         $pstmt = mysqli_stmt_init($conn);
                         if(!mysqli_stmt_prepare($pstmt, $sql))
                         {
