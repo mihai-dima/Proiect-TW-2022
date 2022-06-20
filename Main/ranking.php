@@ -1,6 +1,5 @@
 <?php
 session_start();
-$dom='Sport';
 ?>
 
 <!DOCTYPE html>
@@ -34,6 +33,7 @@ $dom='Sport';
     <?php include "homeBody.html"; ?>
       <!------------------main-content------------------->
     <div class="main-content">
+      <form>
     <div class="wrapperB">
   <div class="select_wrapB">
       <ul class="default_optionB">
@@ -45,39 +45,65 @@ $dom='Sport';
       </ul>
       <ul class="select_ulB">
           <li>
-              <div class="optionB">
-                <p>Music</p>
+              <div class="optionB music">
+                <p >Music</p>
               </div>
           </li>
           <li>
-              <div class="optionB">
+              <div class="optionB sport">
               <p>Sport</p>
               </div>  
           </li>
           <li>
-              <div class="optionB">
+              <div class="optionB politics">
                 <p>Politics</p>
               </div>  
           </li>
           <li>
-            <div class="optionB">
+            <div class="optionB movie">
                 <p>Movie</p>
               </div>
           </li>
           <li>
-            <div class="optionB">
+            <div class="optionB culture">
                 <p>Culture</p>
               </div>
           </li>
           <li>
-            <div class="optionB">
+            <div class="optionB science">
                 <p>Science</p>
               </div>
           </li>
+          
       </ul>
   </div>
-  
 </div>
+  </form>
+
+
+  <!-- ----------  raport table ------- -->
+  <table>
+<tr>
+<th>Domain</th>
+<th>Personality</th>
+<th>Number of autographs</th>
+</tr>
+<?php
+$conn = mysqli_connect("localhost", "root", "", "autographcollector");
+$result = mysqli_query($conn, "SELECT Personality, Domain,COUNT(ID) as numar FROM autographs GROUP BY Personality, Domain ORDER BY Domain");
+
+while($row = $result->fetch_assoc()) {
+echo "<tr><td>" . $row["Domain"]. "</td><td>" . $row["Personality"] . "</td><td>"
+. $row["numar"]. "</td></tr>";
+}
+echo "</table>";
+$conn->close();
+?>
+</table>
+
+
+
+
        </div>
        <!-------------------right-sidebar-----------------> 
       <div class="right-sidebar">
@@ -89,9 +115,9 @@ $dom='Sport';
           </div>
           <div class="ranking">
              <h3>Download rankings: </h3>
-             <button class="button rss" onclick="window.location.href = '../Main/Top/toprss.php?domain=Sport ';">RSS</button>
-             <button class="button csv" onclick="window.location.href = '../Main/Top/topcsv.php?domain=Sport';">CSV</button>
-             <button class="button pdf" onclick="window.location.href = '../Main/Top/toppdf.php?domain=Sport';">PDF</button>
+             <button class="button rss" onclick="window.location.href = '../Main/Top/toprss.php ';">RSS</button>
+             <button class="button csv" onclick="window.location.href = '../Main/Top/topcsv.php';">CSV</button>
+             <button class="button pdf" onclick="window.location.href = '../Main/Top/toppdf.php';">PDF</button>
           </div>
        </div>
 

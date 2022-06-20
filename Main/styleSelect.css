@@ -8,7 +8,7 @@
   }
   
   .wrapperB{
-    position: absolute;
+    position: relative;
     top: 20%;
     left: 35%;
     transform: translate(-50%,-50%);
