@@ -5,11 +5,11 @@ session_start();
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Autograph Collector</title>
-    <link rel="stylesheet" href="styleMain.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Autograph Collector</title>
+  <link rel="stylesheet" href="styleMain.css">
 </head>
 
 <body>
@@ -87,15 +87,14 @@ session_start();
     </div>
   </div>
 
-    </div>
+  <!-------------------right-sidebar----------------->
+  <div class="right-sidebar">
 
-      <!-------------------right-sidebar-----------------> 
-      <div class="right-sidebar">
+  </div>
 
-</div>
-    
-    </div> <!--container-->
-    <script src="script.js"></script>
+  </div>
+  <!--container-->
+  <script src="script.js"></script>
 </body>
 
 </html>
