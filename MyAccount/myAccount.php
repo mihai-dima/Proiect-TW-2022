@@ -3,7 +3,7 @@ session_start();
 require_once '../includes/connDB.php';
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">

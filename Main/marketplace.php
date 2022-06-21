@@ -2,7 +2,7 @@
 session_start();
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -14,7 +14,7 @@ session_start();
 
 <body>
   <?php include "homeBody.html"; ?>
-  <!------------------main-content------------------->
+  <!--main-content-->
   <div class="main-content">
     <div class="exchanges">
       <h2>Exchanges available:</h2>
@@ -75,8 +75,8 @@ session_start();
                                 <p> ' . $receiveNo . ' autographs of ' . $receivePersonality . ' from domain ' . $receiveDomain . ' </p>
                             </div>
                         </div>
-                        <button type="submit" formaction='.$param.' name="exchangeAccepted"> Accept </button>
-                        <form>
+                        <button type="submit" formaction="'.$param.'" name="exchangeAccepted"> Accept </button>
+                        </form>
                   </div>';
           }
         }
@@ -87,7 +87,7 @@ session_start();
     </div>
   </div>
 
-  <!-------------------right-sidebar----------------->
+  <!--right-sidebar-->
   <div class="right-sidebar">
 
   </div>

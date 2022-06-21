@@ -92,3 +92,10 @@
     background-color: transparent; 
     padding: 3% 40%;
   }
+
+  @media only screen and (max-width:700px){
+   .wrapperB{
+    margin-top: 70px;
+    margin-left: 30px;/* position: absolute; */
+   } 
+  }

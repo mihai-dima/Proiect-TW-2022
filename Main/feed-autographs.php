@@ -36,7 +36,7 @@ if (!isset($_SESSION['userID'])) {
             $time = $row["Time"];
             $object = $row["Object"];
             $mentions = $row["Special_mentions"];
-            echo "<script id='feed'> feed_fill('$userName','$profileImage','$index', '$path', '$personality', '$domain', '$city', 
+            echo "<script> feed_fill('$userName','$profileImage','$index', '$path', '$personality', '$domain', '$city', 
                                                         '$country', '$time', '$object', '$mentions'); </script> \n";
             $index++;
         }

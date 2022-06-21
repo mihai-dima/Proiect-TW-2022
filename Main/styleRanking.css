@@ -1,4 +1,5 @@
 
+
 /* ---------------right-sidebar------------- */
 
 .right-sidebar h3{
@@ -57,4 +58,26 @@
     }
     .tabletop tr:nth-child(even) {background-color: #cfcece99}
   
-  
+  @media only screen and (max-width:700px){
+     .tabletop{
+      flex-direction: column-reverse;
+      margin: 12px 15px;
+      width: 92%;
+      margin-top: 20px;
+     }
+     .tableraport{
+      flex-direction: column-reverse;
+      margin: 12px 12px;
+     }
+     .button{
+      display: none;
+     }
+
+     .right-sidebar h3{
+      display: none;
+    }
+    .toptitle h2{
+      margin-top: 100px;
+    }
+
+  }
