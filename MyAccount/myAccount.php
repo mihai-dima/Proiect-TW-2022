@@ -59,12 +59,33 @@ require_once '../includes/connDB.php';
         <div class="profile-details">
             <div class="pd-left">
                 <div class="pd-row">
-                    <img src="../images/profil.jpg" class="pd-img">
-                    <div>
-                        <h3>John Green</h3>
-                        <p>Number of posts: 2</p>
+                <div class='changePhoto'>
+                        <img style='border:2px solid rgb(141, 112, 152)' src="../images/profile-photo.jpg" class="pd-img">
+                        <!-- <form  action="../includes/profilePhoto.php" method="post" enctype="multipart/form-data"> -->
+				        <input type="file" id="file">
+                        <label for="file" id="uploadBtn">Change Photo</label>
                     </div>
+                    <?php
+                    $sql = "SELECT NAME FROM users WHERE ID=?;";
+                    $pstmt = mysqli_stmt_init($conn);
+                    if (!mysqli_stmt_prepare($pstmt, $sql)) {
+                        header("Location: ../LoginAndSign-up/myAccount.php?get-name=sqlerror");
+                        exit();
+                    }else{
+                        $ID = $_SESSION["userID"];
+                        mysqli_stmt_bind_param($pstmt, "i", $ID);
+                        mysqli_stmt_execute($pstmt);
+                        $result = mysqli_stmt_get_result($pstmt);
+                        $index = 1;
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $NAME = $row["NAME"];
+                            echo '<p> '.$NAME.'</p>';
+                            $index++;
+                        }
+                    }
+                    ?>
                 </div>
+<!-- formularul de adaugare a autografelor -->
             </div>
             <div class="pd-right">
                 <ul>
@@ -217,7 +238,6 @@ require_once '../includes/connDB.php';
 
                 var modal = document.createElement('dialog');
                 modal.id = modalID;
-                modal.setAttribute("modal-mode", "mega");
                 modal.className = "autograf-modal";
 
                 //Div from modal
@@ -229,6 +249,7 @@ require_once '../includes/connDB.php';
                 var header = document.createElement('header');
                 var title = document.createElement('h3');
                 var textTitle = document.createTextNode(personality);
+                title.className="details";
                 title.appendChild(textTitle);
                 header.appendChild(title);
 
@@ -238,6 +259,7 @@ require_once '../includes/connDB.php';
                     this.closest('dialog').close('close')
                 };
                 closeBtn.appendChild(text);
+                closeBtn.className="close-Btn";
                 header.appendChild(closeBtn);
                 //Append header to div
                 div.appendChild(header);
@@ -246,14 +268,14 @@ require_once '../includes/connDB.php';
                 var divDetails = document.createElement('div');
                 var details = document.createElement('h3');
                 details.className = 'details';
-                var title_details = document.createTextNode('Details');
+                var title_details = document.createTextNode(' Details');
                 details.appendChild(title_details);
                 divDetails.appendChild(details);
 
                 var div_item = document.createElement('div');
                 div_item.className = "div_item";
                 var item = document.createElement('h2');
-                var item_detail = document.createTextNode('Domain');
+                var item_detail = document.createTextNode('Domain:');
                 var context = document.createElement('p');
                 var context_text = document.createTextNode(domain);
                 item.appendChild(item_detail);
@@ -265,7 +287,7 @@ require_once '../includes/connDB.php';
                 div_item = document.createElement('div');
                 div_item.className = "div_item";
                 item = document.createElement('h2');
-                item_detail = document.createTextNode('Personality');
+                item_detail = document.createTextNode('Personality:');
                 context = document.createElement('p');
                 context_text = document.createTextNode(personality);
                 item.appendChild(item_detail);
@@ -277,7 +299,7 @@ require_once '../includes/connDB.php';
                 div_item = document.createElement('div');
                 div_item.className = "div_item";
                 item = document.createElement('h2');
-                item_detail = document.createTextNode('Country');
+                item_detail = document.createTextNode('Country:');
                 context = document.createElement('p');
                 context_text = document.createTextNode(country);
                 item.appendChild(item_detail);
@@ -290,7 +312,7 @@ require_once '../includes/connDB.php';
                 div_item = document.createElement('div');
                 div_item.className = "div_item";
                 item = document.createElement('h2');
-                item_detail = document.createTextNode('City');
+                item_detail = document.createTextNode('City:');
                 context = document.createElement('p');
                 context_text = document.createTextNode(city);
                 item.appendChild(item_detail);
@@ -301,7 +323,7 @@ require_once '../includes/connDB.php';
                 div_item = document.createElement('div');
                 div.className = "div_item";
                 item = document.createElement('h2');
-                item_detail = document.createTextNode('Time of obtaining');
+                item_detail = document.createTextNode('Time of obtaining:');
                 context = document.createElement('p');
                 context_text = document.createTextNode(time_obtained);
                 item.appendChild(item_detail);
@@ -312,7 +334,7 @@ require_once '../includes/connDB.php';
                 div_item = document.createElement('div');
                 div.className = "div_item";
                 item = document.createElement('h2');
-                item_detail = document.createTextNode('Object');
+                item_detail = document.createTextNode('Object:');
                 context = document.createElement('p');
                 context_text = document.createTextNode(object);
                 item.appendChild(item_detail);
@@ -323,7 +345,7 @@ require_once '../includes/connDB.php';
                 div_item = document.createElement('div');
                 div.className = "div_item";
                 item = document.createElement('h2');
-                item_detail = document.createTextNode('Special mentions');
+                item_detail = document.createTextNode('Special mentions:');
                 context = document.createElement('p');
                 context_text = document.createTextNode(mentions);
                 item.appendChild(item_detail);
