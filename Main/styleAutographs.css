@@ -6,19 +6,20 @@
 body{
     background: #efefef ;
 }
+
 nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
     background:  linear-gradient(to right, #958bdf, #bab7d0);
-    padding: 5px 5%;
+    padding: 5px;
     position: sticky;
     top: 0;
-    z-index: 100;
+    /*z-index: 100;*/
 }
 .logo{
-    width: 80px;
-    margin-right: 25px;
+    width: 75px;
+    /*margin-right: 25px;*/
 }
 .nav-left, .nav-right{
     display: flex;
@@ -44,7 +45,7 @@ nav{
 .search-box{
     background: #efefef;
     width: 350px;
-    border-radius: 20px;
+    border-radius: 50px;
     display: flex;
     align-items: center;
     padding: 0 15px;
@@ -62,16 +63,15 @@ nav{
 }
 .container {
     display: flex; 
-    justify-content: space-between;
-    padding: 13px 5px;
-    
+    justify-content:flex-start;
+    padding: 5px 5px; 
 }
 .left-sidebar{
     background: #ddd9f7;
-    flex-basis: 20%;
+    flex-basis: 200px;
     position: sticky;
     top: 70px;
-    align-self: flex-start;
+    align-self:flex-start;
 }
 .right-sidebar{
    
@@ -82,8 +82,8 @@ nav{
 }
 .main-content{
     top:70px;
-
-    flex-basis: 47%;
+    flex-basis: 50%;
+    padding-left: 15%;
 }
 
 .imp-links a{
@@ -101,9 +101,8 @@ nav{
     margin-left: 30px;
 }
 
-
 .settings-menu{
-   position: absolute;
+    position: absolute;
     width: 90%;
     max-width: 300px;
     height: 300px;
@@ -121,7 +120,7 @@ nav{
 .user-profile{
     display: flex;
     align-items: center;
-    margin: 15px 10;
+    margin: 15px 10px;
 }
 .seeAcount-icon{
     align-items: center;
@@ -147,7 +146,7 @@ nav{
 .settings-links{
     display: flex;
     align-items: center;
-    margin: 15px 10;
+    margin: 15px 10px;
 }
 .logout-icon{
    width: 38px;

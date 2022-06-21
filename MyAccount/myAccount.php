@@ -11,6 +11,7 @@ require_once '../includes/connDB.php';
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Autograph Collector/Profile</title>
     <link rel="stylesheet" href="styleMyAccount.css">
+    <link rel="stylesheet" href="showAutographs.css">
 </head>
 
 <body>
@@ -61,10 +62,11 @@ require_once '../includes/connDB.php';
             <div class="pd-left">
                 <div class="pd-row">
                 <div class='changePhoto'>
-                        <img style='border:2px solid rgb(141, 112, 152)' src="../images/profile-photo.jpg" class="pd-img">
-                        <!-- <form  action="../includes/profilePhoto.php" method="post" enctype="multipart/form-data"> -->
-				        <input type="file" id="file">
-                        <label for="file" id="uploadBtn">Change Photo</label>
+                        <img style='border:2px solid rgb(141, 112, 152)' src="../images/profil.jpg" class="pd-img">
+                        <form action="../includes/profilePhoto.php" method="post" enctype="multipart/form-data" onsubmit="">
+				            <input type="file" id="file">
+                            <label for="file" id="uploadBtn">Change Photo</label>
+                        </form>
                     </div>
                     <?php
                     $sql = "SELECT NAME FROM users WHERE ID=?;";
@@ -86,7 +88,7 @@ require_once '../includes/connDB.php';
                     }
                     ?>
                 </div>
-<!-- formularul de adaugare a autografelor -->
+        <!-- formularul de adaugare a autografelor -->
             </div>
             <div class="pd-right">
                 <ul>
@@ -117,7 +119,7 @@ require_once '../includes/connDB.php';
                         <div class="form-element" required>
                             <label for="domain" required>Domain</label>
                             <div class="data-list-input" required>
-                                <select class="data-list-input" required>
+                                <select class="data-list-input" name="domain" required>
                                     <option>Select a domain</option>
                                     <option value="Sport">Sport</option>
                                     <option value="Politics">Politics</option>
@@ -213,8 +215,8 @@ require_once '../includes/connDB.php';
             </dialog>
         </div>
     </div>
-    <div class="Container">
-        <div id="autographs"></div>
+    <div class="container">
+        <div id="autographs" class="autographs-show"></div>
 
         <script id="feed">
             //
@@ -418,7 +420,7 @@ require_once '../includes/connDB.php';
             }
         }
         ?>
-    </div>
+    <!--/div-->
     <div class="profile-info">
         <div class="info-col"></div>
         <div class="post-col">
