@@ -7,6 +7,7 @@ require_once '../includes/connDB.php';
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Autograph Collector/Profile</title>
     <link rel="stylesheet" href="styleMyAccount.css">
@@ -59,7 +60,9 @@ require_once '../includes/connDB.php';
         <div class="profile-details">
             <div class="pd-left">
                 <div class="pd-row">
+                    <div>
                     <img src="../images/profil.jpg" class="pd-img">
+                    </div>
                     <div>
                         <h3>John Green</h3>
                         <p>Number of posts: 2</p>
@@ -95,21 +98,21 @@ require_once '../includes/connDB.php';
                         <div class="form-element" required>
                             <label for="domain" required>Domain</label>
                             <div class="data-list-input" required>
-                              <select class="data-list-input" required>
-                                 <option>Select a domain</option>  
-                                 <option value="Sport">Sport</option>
-                                 <option value="Politics">Politics</option>
-                                 <option value="Music">Music</option>
-                                 <option value="Movie">Movie</option>
-                                 <option value="Culture">Culture</option>
-                                 <option value="Science">Science</option>
-                              </select>
-                           </div>
-                       </div>
-                     <div class="form-element">
-                        <label for="personality">Personality</label>
-                        <input type="text" name="personality" placeholder="Add Personality" required>
-                     </div>
+                                <select class="data-list-input" required>
+                                    <option>Select a domain</option>
+                                    <option value="Sport">Sport</option>
+                                    <option value="Politics">Politics</option>
+                                    <option value="Music">Music</option>
+                                    <option value="Movie">Movie</option>
+                                    <option value="Culture">Culture</option>
+                                    <option value="Science">Science</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-element">
+                            <label for="personality">Personality</label>
+                            <input type="text" name="personality" placeholder="Add Personality" required>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="form-element">
@@ -141,7 +144,7 @@ require_once '../includes/connDB.php';
                 </form>
             </div>
         </div>
-        <div class="exchange-form" >
+        <div class="exchange-form">
             <dialog id="exchange" modal-mode="mega">
                 <form class="form-content" action="../includes/addExchange.php" method="post">
                     <header>
@@ -190,7 +193,8 @@ require_once '../includes/connDB.php';
                 </form>
             </dialog>
         </div>
-
+    </div>
+    <div class="Container">
         <div id="autographs"></div>
 
         <script id="feed">
@@ -394,12 +398,11 @@ require_once '../includes/connDB.php';
             }
         }
         ?>
+    </div>
+    <div class="profile-info">
+        <div class="info-col"></div>
+        <div class="post-col">
 
-        <div class="profile-info">
-            <div class="info-col"></div>
-            <div class="post-col">
-
-            </div>
         </div>
     </div>
     <script src="script.js"></script>

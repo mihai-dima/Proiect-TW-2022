@@ -2,25 +2,24 @@
     margin: 0;
     padding: 0;
     font-family: 'poppins',sans-serif;
-    box-sizing: border-box;
 }
 body{
     background: #efefef ;
-    font-family: "Raleway",sans-serif;
 }
+
 nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
     background:  linear-gradient(to right, #958bdf, #bab7d0);
-    padding: 5px 5%;
+    padding: 5px;
     position: sticky;
     top: 0;
-    z-index: 100;
+    /*z-index: 100;*/
 }
 .logo{
-    width: 80px;
-    margin-right: 25px;
+    width: 75px;
+    /*margin-right: 25px;*/
 }
 .nav-left, .nav-right{
     display: flex;
@@ -46,7 +45,7 @@ nav{
 .search-box{
     background: #efefef;
     width: 350px;
-    border-radius: 20px;
+    border-radius: 50px;
     display: flex;
     align-items: center;
     padding: 0 15px;
@@ -63,29 +62,30 @@ nav{
     border: 0;
 }
 .container {
-    display: flex;
-    justify-content: space-between;
-    
+    display: flex; 
+    justify-content:flex-start;
+    padding: 5px 5px; 
 }
 .left-sidebar{
     background: #ddd9f7;
-    flex-basis: 20%;
+    flex-basis: 200px;
     position: sticky;
     top: 70px;
-    align-self: flex-start;
-    height: 100vh;
+    align-self:flex-start;
 }
 .right-sidebar{
    
     flex-basis: 25%;
     position: sticky;
-    top: 70px;
+    top: 70px; 
     align-self: flex-start;
-    height: 100vh;
 }
 .main-content{
-    flex-basis: 47%;
+    top:70px;
+    flex-basis: 80%;
+    padding-left: 15%;
 }
+
 .imp-links a{
     text-decoration: none;
     display: flex;
@@ -101,9 +101,8 @@ nav{
     margin-left: 30px;
 }
 
-
 .settings-menu{
-   position: absolute;
+    position: absolute;
     width: 90%;
     max-width: 300px;
     height: 300px;
@@ -121,7 +120,7 @@ nav{
 .user-profile{
     display: flex;
     align-items: center;
-    margin: 15px 10;
+    margin: 15px 10px;
 }
 .seeAcount-icon{
     align-items: center;
@@ -147,7 +146,7 @@ nav{
 .settings-links{
     display: flex;
     align-items: center;
-    margin: 15px 10;
+    margin: 15px 10px;
 }
 .logout-icon{
    width: 38px;
@@ -160,6 +159,71 @@ nav{
     justify-content: space-between;
     text-decoration: none;
     color: #626262;
+}
+
+@media only screen and (max-width: 800px) {
+    /* For mobile phones: */
+    .search-box {
+      width: 200px;
+    }
+    .imp-links a img{
+        width: 35px;
+        margin-right: 15px;
+        margin-left: 30px;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    .search-box {
+        width: 120px;
+      }
+    .left-sidebar{
+        display: none;
+    }   
+    .settings-menu{
+        width: 70%;
+        max-width: 200px;
+    }
+    .settings-menu-height{
+        max-height: 150px;
+    }
+    .seeAcount-icon{
+        width: 25px;
+       /* margin-right: 15px;*/
+    }
+    .logout-icon{
+        width: 28px;
+     }
+}
+
+@media only screen and (max-width: 620px) {
+    #autographs{
+        text-align: center;
+        margin: 0 auto;
+    }
+        
+    .user-profile-img{
+        width: 15%;
+        height: 15%;
+        border-radius: 50%;
+        margin-right: 20px;
+        margin-top: 10px;
+    }
+    .nav-left{
+        display: none;
+    }
+    .container {
+        display: inline-block; 
+        /*justify-content:flex-start;*/
+        padding: 5px 30px 5px 5px; 
+    }
+    
+    .write-post-container{
+        /*width: 100%;*/
+        min-width: 50px;
+        width: 100%;
+        height: 300px;
+    }
 }
 
 
@@ -370,19 +434,71 @@ cursor: pointer;
 
 /*------------------ postare ------------------*/
 
+.post-img{
+    width: 95%;
+    height: 90%;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+.write-post-container{
+    /*width: 100%;*/
+    min-width: 50px;
+    width: 400px;
+    height: 300px;
+    /*display: inline-flex;*/
+    background: #fff;
+    border-radius: 6px;
+    padding-bottom: 20px;
+    color: #626262;
+    margin-top: 20px;
+    margin-right: 25%;
+}
+
 .div_item{
     display: flex;
 }
 
-.autographs{
-    display: inline-flex;
+#autographs{
+    /*text-align: center;*/
+    display:flex;
+    /*justify-content: flex-start;*/
 }
 
+.post-img{
+    width: 95%;
+    height: 90%;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-left: 5%;
+}
+
+@media only screen and (max-width: 620px) {
+    #autographs{
+        text-align: center;
+        margin: 0 auto;
+    }
+    .write-post-container{
+        /*width: 100%;*/
+        min-width: 50px;
+        width: 100%;
+        height: 300px;
+    }
+}
+
+.div_item{
+    display: flex;
+}
+
+/*
+.autographs{
+    display: inline-flex;
+}*/
+/*
 .write-post-container{
     width: 400px;
     height: 300px;
     display: inline-flex;
-    
 }
 
 .post-img{
@@ -395,8 +511,8 @@ cursor: pointer;
 .user-profile span{
     font-size: 10px;
     color: #9a9a9a;
-}
-
+}*/
+/*
 .post-popup{
     width: 55%;
     background: rgb(221, 149, 149);
@@ -459,7 +575,7 @@ select
   border-radius: 4px;
 }
 
-/* specific customizations for the data-list */
+/* specific customizations for the data-list 
 div.data-list-input
 {
 	position: relative;
