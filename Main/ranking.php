@@ -3,7 +3,7 @@ session_start();
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -31,10 +31,10 @@ session_start();
 
 <body>
     <?php include "homeBody.html"; ?>
-      <!------------------main-content------------------->
+      <!-- main-content -->
     <div class="main-content">
 
-  <!-- ----------  raport table ------- -->
+  <!-- raport table  -->
   <table class="tableraport">
 <tr>
 <th>Domain</th>
@@ -49,29 +49,31 @@ while($row = $result->fetch_assoc()) {
 echo "<tr><td>" . $row["Domain"]. "</td><td>" . $row["Personality"] . "</td><td>"
 . $row["numar"]. "</td></tr>";
 }
-echo "</table>";
+
 $conn->close();
 ?>
 </table>
 
   </div>
 
-       <!-------------------right-sidebar-----------------> 
+       <!-- right-sidebar  -->
       <div class="right-sidebar">
-          <div class="reports">
+        <div>
+          <div class="reports" >
              <h3>Download collection reports: </h3>
              <button class="button rss" onclick="window.location.href = '../Main/Raport/raportrss.php';">RSS</button>
              <button class="button csv" onclick="window.location.href = '../Main/Raport/raportcsv.php';">CSV</button>
              <button class="button pdf" onclick="window.location.href='../Main/Raport/raportpdf.php';">PDF</button>
           </div>
-          <div class="ranking">
+          <div class="ranking" >
              <h3>Download rankings: </h3>
              <button class="button rss" onclick="window.location.href = '../Main/Top/toprss.php';">RSS</button>
              <button class="button csv" onclick="window.location.href = '../Main/Top/topcsv.php?domain=Sport';">CSV</button>
              <button class="button pdf" onclick="window.location.href = '../Main/Top/toppdf.php?domain=Sport';">PDF</button>
           </div>
+        </div>
 
-          <!-- ---------- select button ---------- -->
+          <!-- select button -->
           <form>
           <div class="wrapperB">
   <div class="select_wrapB">
@@ -122,7 +124,3 @@ $conn->close();
 
     </div> <!--container-->
     <script src="script.js"></script>
-
-</body>
-
-</html>
