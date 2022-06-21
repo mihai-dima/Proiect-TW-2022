@@ -17,14 +17,13 @@ nav{
     z-index: 100;
 }
 .logo{
-    width: 80px;
+    width: 75px;
     margin-right: 25px;
 }
 .nav-left, .nav-right{
     display: flex;
     align-items: center;
 }
-
 
 .nav-left ul li{
     list-style: none;
