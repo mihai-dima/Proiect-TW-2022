@@ -7,8 +7,8 @@
 
 .button {
   border:2px solid #000;
-  margin-top: 5px;
-  margin-left: 20px;
+  margin-left: 5%;
+  margin-block-end: 8%;
   background-color:#eee;
   padding: 12px 20px;
   font-size: 15px;
@@ -16,3 +16,45 @@
   display: inline-block;
 }
 .button:hover {background: #ddd9f7;}
+
+/* ---------------main content table ------------ */
+
+.tableraport {
+  width: 100%;
+  color: #676767;
+  /* font-family: monospace; */
+  font-size: 20px;
+  text-align: center;
+  position:relative;
+  }
+ .tableraport th {
+  width: 20%;
+  background-color: #2c2c2c;
+  color: white;
+  }
+  .tableraport tr:nth-child(even) {background-color: #cfcece99}
+
+.toptitle h2{
+  font-size: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+  margin-block-end: 2%;
+}
+
+  .tabletop {
+    width: 47%;
+    color: #676767;
+    /* font-family: monospace; */
+    font-size: 20px;
+    text-align: center;
+    position:relative;
+    margin-left: 25%;
+    }
+   .tabletop th {
+    width: 20%;
+    background-color: #5c61ec;
+    color: white;
+    }
+    .tabletop tr:nth-child(even) {background-color: #cfcece99}
+  
+  

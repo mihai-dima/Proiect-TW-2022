@@ -8,17 +8,17 @@
   }
   
   .wrapperB{
-    position: absolute;
-    top: 20%;
-    left: 35%;
+    position: relative;
     transform: translate(-50%,-50%);
+  
   }
   
   .select_wrapB{
     width: 225px;
-    margin: 15px auto;
+    margin: 5% auto;
     position: relative;
     user-select: none;
+    margin-left: 65%;
   }
   
   .select_wrapB .default_optionB{
@@ -47,16 +47,15 @@
   
   .select_wrapB .select_ulB{
     position: absolute;
-    top: 55px;
     left: 0;
     width: 100%;
     background: #fff;
     border-radius: 5px;
     display: none;
+    border: 1px solid transparent;
   }
   
   .select_wrapB .select_ulB li{
-    padding: 10px 20px;
     cursor: pointer;
   }
   
@@ -86,4 +85,10 @@
   .select_wrapB.activ .default_optionB:before{
     top: 25px;
     transform: rotate(-225deg);
+  }
+
+  input[type=button]{
+    border: 1px solid transparent; 
+    background-color: transparent; 
+    padding: 3% 40%;
   }
