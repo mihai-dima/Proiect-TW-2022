@@ -3,7 +3,7 @@ session_start();
 require_once '../includes/connDB.php';
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -24,7 +24,7 @@ require_once '../includes/connDB.php';
             require_once 'feed-autographs.php';
         ?>
     </div>
-    <!--right-sidebar--
+    <!--right-sidebar
     <div class="right-sidebar">
 
     </div>-->
