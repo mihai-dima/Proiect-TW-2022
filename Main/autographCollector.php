@@ -15,7 +15,7 @@ require_once '../includes/connDB.php';
 
 <body>
     <?php require_once("homeBody.html"); ?>
-    <!------------------main-content------------------->
+    <!--main-content-->
     <div class="main-content">
         <div id="autographs">
         </div>
@@ -24,11 +24,11 @@ require_once '../includes/connDB.php';
             require_once 'feed-autographs.php';
         ?>
     </div>
-    <!-------------------right-sidebar----------------->
+    <!--right-sidebar--
     <div class="right-sidebar">
 
-    </div>
-    </div>
+    </div>-->
+    </div> 
     <script src="script.js"></script>
 </body>
 </html>
