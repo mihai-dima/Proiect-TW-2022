@@ -11,94 +11,106 @@ require_once '../includes/connDB.php';
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Autograph Collector/Profile</title>
     <link rel="stylesheet" href="styleMyAccount.css">
-    <link rel="stylesheet" href="showAutographs.css">
+    <link rel="stylesheet" href="feedAutographs.css">
+
 </head>
 
 <body>
     <nav>
         <div class="nav-left">
-            <img src="../images/logo.png" class="logo">
+            <img src="../images/logo.png" alt="logo" class="logo" onclick="window.location.href = '../Main/autographCollector.php';">
             <ul>
-                <li><img src="../images/notificari.png"></li>
-                <li><img src="../images/home.png" onclick="window.location.href = '../Main/autographCollector.php' ;"></li>
+                <li><img src="../images/home.png" alt="home" class="home" onclick="window.location.href = '../Main/autographCollector.php' ;"></li>
             </ul>
         </div>
         <div class="nav-right">
             <div class="search-box">
-                <img src="../images/search.png">
+                <img src="../images/search.png" alt="search">
                 <input type="text" placeholder="Search">
             </div>
 
             <div class="nav-user-icon" onclick="menuSettings()">
-                <img src="../images/myaccount.jpg">
+                <img src="../images/myaccount.jpg" alt="my-account">
             </div>
         </div>
 
-        <!-------------settings-menu----------------->
+        <!--settings-menu-->
         <div class="settings-menu">
             <div class="settings-menu-inner">
-                <div class="user-profile">
-                    <img src="../images/seeAccount.png" class="seeAcount-icon">
-                    <a href="#">See your profile</a>
-                </div>
-                <hr>
                 <div class="settings-links">
-                    <img src="../images/logout.png" class="logout-icon">
+                    <img src="../images/logout.png" alt="logout-icon" class="logout-icon">
                     <form action="../includes/logout.php" method="post">
-                        <button type="submit" name="logout"> Logout </button> <img src="../images/arrow.png" alt="Arrow-image" width="6px">
-
+                        <button type="submit" name="logout"> Logout </button> <img src="../images/arrow.png" alt="Arrow-image" class="arrow" style="width: 6px">
                     </form>
                 </div>
             </div>
         </div>
-
     </nav>
 
-    <!----------------------Profile-page------------->
-
+    <!--Profile-page-->
     <div class="profile-container">
-        <img src="../images/cover.png" class="cover-img">
+        <img src="../images/cover.png" alt="cover-image" class="cover-img">
         <div class="profile-details">
             <div class="pd-left">
                 <div class="pd-row">
-                <div class='changePhoto'>
-                        <img style='border:2px solid rgb(141, 112, 152)' src="../images/profil.jpg" class="pd-img">
-                        <form action="../includes/profilePhoto.php" method="post" enctype="multipart/form-data" onsubmit="">
-				            <input type="file" id="file">
-                            <label for="file" id="uploadBtn">Change Photo</label>
-                        </form>
+                    <div class="changePhoto">
+                        <img style='border:2px solid rgb(141, 112, 152)' src="../images/profil.jpg" alt="profile-image" class="pd-img">
+                        <!--form action="../includes/profilePhoto.php" method="post" enctype="multipart/form-data" onsubmit=""->
+                        <input type="file" id="file">
+                        <label id="profile-uploadBtn">Change Photo</label>
+                        <--/form-->
                     </div>
-                    <?php
-                    $sql = "SELECT NAME FROM users WHERE ID=?;";
-                    $pstmt = mysqli_stmt_init($conn);
-                    if (!mysqli_stmt_prepare($pstmt, $sql)) {
-                        header("Location: ../LoginAndSign-up/myAccount.php?get-name=sqlerror");
-                        exit();
-                    }else{
-                        $ID = $_SESSION["userID"];
-                        mysqli_stmt_bind_param($pstmt, "i", $ID);
-                        mysqli_stmt_execute($pstmt);
-                        $result = mysqli_stmt_get_result($pstmt);
-                        $index = 1;
-                        while ($row = mysqli_fetch_assoc($result)) {
+                    <div>
+                        <?php
+                        $sql = "SELECT NAME FROM users WHERE ID=?;";
+                        $pstmt = mysqli_stmt_init($conn);
+                        if (!mysqli_stmt_prepare($pstmt, $sql)) {
+                            echo '<h3> User </h3>';
+                            header("Location: ../LoginAndSign-up/myAccount.php?get-name=sqlerror");
+                            exit();
+                        } else {
+                            $ID = $_SESSION["userID"];
+                            mysqli_stmt_bind_param($pstmt, "i", $ID);
+                            mysqli_stmt_execute($pstmt);
+                            $result = mysqli_stmt_get_result($pstmt);
+                            $row = mysqli_fetch_assoc($result);
                             $NAME = $row["NAME"];
-                            echo '<p> '.$NAME.'</p>';
-                            $index++;
+                            echo '<h3> ' . $NAME . ' </h3>';
                         }
-                    }
-                    ?>
+
+                        $sql = "SELECT COUNT(ID) AS Counter FROM AUTOGRAPHS WHERE UserID=?";
+                        $pstmt = mysqli_stmt_init($conn);
+                        if (!mysqli_stmt_prepare($pstmt, $sql)) {
+                            echo '<p> Number of autographs: unknown </p>';
+                            header("Location: ../LoginAndSign-up/myAccount.php?get-name=sqlerror");
+                            exit();
+                        } else {
+                            $ID = $_SESSION["userID"];
+                            mysqli_stmt_bind_param($pstmt, "i", $ID);
+                            mysqli_stmt_execute($pstmt);
+                            $result = mysqli_stmt_get_result($pstmt);
+                            $index = 1;
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                $count = $row["Counter"];
+                                echo '<p> Number of autographs: ' . $count . ' </p>';
+                                $index++;
+                            }
+                        }
+                        ?>
+                    </div>
                 </div>
-        <!-- formularul de adaugare a autografelor -->
             </div>
+
+            <!--butoane adaugare formular si exchange-->
             <div class="pd-right">
                 <ul>
                     <li>
-                        <div class="autograph-form">
+                        <div class="add-button">
                             <button id="show-addAutograph">Add a new autograph</button>
                         </div>
                     </li>
                     <li>
-                        <div class="exchange-button">
+                        <div class="add-button">
                             <button id="show-exchange-dialog" onclick="document.getElementById('exchange').showModal()"> Propose an exchange </button>
                         </div>
                     </li>
@@ -106,21 +118,22 @@ require_once '../includes/connDB.php';
             </div>
         </div>
 
-        <div class="popup" action="../includes/addAutographForm.php" method="post">
+        <!-- formularul de adaugare a autografelor -->
+        <div class="popup">
             <div class="close-btn">&times;</div>
             <div class="form">
                 <form id="add-autograph" action="../includes/addAutograph.php" method="post" enctype="multipart/form-data">
                     <h2>Autograph</h2>
                     <div class="form-element">
-                        <label for="photo">Picture</label>
+                        <label id="photo">Picture</label>
                         <input type="file" name="photo" required>
                     </div>
                     <div class="row">
-                        <div class="form-element" required>
-                            <label for="domain" required>Domain</label>
-                            <div class="data-list-input" required>
-                                <select class="data-list-input" name="domain" required>
-                                    <option>Select a domain</option>
+                        <div class="form-element">
+                            <label id="domain">Domain</label>
+                            <div class="data-list-input">
+                                <select class="data-list-input" name="domain">
+                                    <option value>Select a domain</option>
                                     <option value="Sport">Sport</option>
                                     <option value="Politics">Politics</option>
                                     <option value="Music">Music</option>
@@ -131,32 +144,32 @@ require_once '../includes/connDB.php';
                             </div>
                         </div>
                         <div class="form-element">
-                            <label for="personality">Personality</label>
+                            <label id="personality">Personality</label>
                             <input type="text" name="personality" placeholder="Add Personality" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-element">
-                            <label for="country">Country</label>
+                            <label id="country">Country</label>
                             <input type="text" name="country" placeholder="Add country" required>
                         </div>
                         <div class="form-element">
-                            <label for="city">City</label>
+                            <label id="city">City</label>
                             <input type="text" name="city" placeholder="Add city" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-element">
-                            <label for="time">Moment</label>
+                            <label id="time">Moment</label>
                             <input type="text" name="time" placeholder="Add moment you got it" required>
                         </div>
                         <div class="form-element">
-                            <label for="object">Object</label>
+                            <label id="object">Object</label>
                             <input type="text" name="object" placeholder="Add place on which the autograph is located " required>
                         </div>
                     </div>
                     <div class="form-element">
-                        <label for="mentions">Special mentions</label>
+                        <label id="mentions">Special mentions</label>
                         <input type="text" name="mentions" placeholder="Add special mentions">
                     </div>
                     <div class="form-element">
@@ -165,28 +178,30 @@ require_once '../includes/connDB.php';
                 </form>
             </div>
         </div>
-        <div class="exchange-form">
+
+        <!-- formularul de adaugare exchange -->
+        <div class="popup">
             <dialog id="exchange" modal-mode="mega">
-                <form class="form-content" action="../includes/addExchange.php" method="post">
+                <form class="form" action="../includes/addExchange.php" method="post">
                     <header>
                         <h2>Exchange</h2>
-                        <button onclick="this.closest('dialog').close('close')"> Close </button>
+                        <button onclick="this.closest('dialog').close('close')"> &times; </button>
                     </header>
                     <article>
                         <div class="form-element">
                             <p> To give </p>
                         </div>
                         <div class="form-element">
-                            <label for="no-of-autographs">No. of autographs</label>
+                            <label id="give-no-of-autographs">No. of autographs</label>
                             <input type="number" name="giveNo" placeholder="No. of autographs you want to give" required>
                         </div>
                         <div class="row">
                             <div class="form-element">
-                                <label for="personality">Personality</label>
+                                <label id="give-personality">Personality</label>
                                 <input type="text" name="givePersonality" placeholder="Type personality" required>
                             </div>
                             <div class="form-element">
-                                <label for="domain">Domain</label>
+                                <label id="give-domain">Domain</label>
                                 <input type="text" name="giveDomain" placeholder="Type domain" required>
                             </div>
                         </div>
@@ -194,16 +209,16 @@ require_once '../includes/connDB.php';
                             <p> To receive </p>
                         </div>
                         <div class="form-element">
-                            <label for="no-of-autographs">No. of autographs</label>
+                            <label id="receive-no-of-autographs">No. of autographs</label>
                             <input type="number" name="receiveNo" placeholder="No. of autographs you want to receive" required>
                         </div>
                         <div class="row">
                             <div class="form-element">
-                                <label for="personality">Personality</label>
+                                <label id="receive-personality">Personality</label>
                                 <input type="text" name="receivePersonality" placeholder="Type personality" required>
                             </div>
                             <div class="form-element">
-                                <label for="domain">Domain</label>
+                                <label id="receive-domain">Domain</label>
                                 <input type="text" name="receiveDomain" placeholder="Type domain" required>
                             </div>
                         </div>
@@ -215,185 +230,11 @@ require_once '../includes/connDB.php';
             </dialog>
         </div>
     </div>
-    <div class="container">
-        <div id="autographs" class="autographs-show"></div>
-
-        <script id="feed">
-            //
-            function feed_fill(autografID, autografImage, personality, domain, city, country, time_obtained, object, mentions) {
-                var divContainer = document.createElement('div');
-                divContainer.className = "write-post-container";
-
-                //autograph
-                var imgAutograph = document.createElement('img');
-                imgAutograph.src = autografImage;
-                imgAutograph.alt = 'autograph';
-                imgAutograph.className = "post-img";
-
-                var modalName = "modal";
-                var modalID = modalName.concat(autografID);
-                imgAutograph.onclick = function() {
-                    document.getElementById(modalID).showModal()
-                };
-                divContainer.appendChild(imgAutograph);
-
-                //var text = document.createTextNode("asda");
-                //divContainer.appendChild(text);
-
-                var modal = document.createElement('dialog');
-                modal.id = modalID;
-                modal.className = "autograf-modal";
-
-                //Div from modal
-                var div = document.createElement('div');
-                div.className = "modal-content";
-                div.setAttribute("method", "dialog");
-
-                //Header - autograph name and exit button
-                var header = document.createElement('header');
-                var title = document.createElement('h3');
-                var textTitle = document.createTextNode(personality);
-                title.className="details";
-                title.appendChild(textTitle);
-                header.appendChild(title);
-
-                var closeBtn = document.createElement('button');
-                var text = document.createTextNode("exit");
-                closeBtn.onclick = function() {
-                    this.closest('dialog').close('close')
-                };
-                closeBtn.appendChild(text);
-                closeBtn.className="close-Btn";
-                header.appendChild(closeBtn);
-                //Append header to div
-                div.appendChild(header);
-
-                //content of modal
-                var divDetails = document.createElement('div');
-                var details = document.createElement('h3');
-                details.className = 'details';
-                var title_details = document.createTextNode(' Details');
-                details.appendChild(title_details);
-                divDetails.appendChild(details);
-
-                var div_item = document.createElement('div');
-                div_item.className = "div_item";
-                var item = document.createElement('h2');
-                var item_detail = document.createTextNode('Domain:');
-                var context = document.createElement('p');
-                var context_text = document.createTextNode(domain);
-                item.appendChild(item_detail);
-                context.appendChild(context_text);
-                item.appendChild(context);
-                div_item.appendChild(item)
-                divDetails.appendChild(div_item);
-
-                div_item = document.createElement('div');
-                div_item.className = "div_item";
-                item = document.createElement('h2');
-                item_detail = document.createTextNode('Personality:');
-                context = document.createElement('p');
-                context_text = document.createTextNode(personality);
-                item.appendChild(item_detail);
-                context.appendChild(context_text);
-                item.appendChild(context);
-                div_item.appendChild(item)
-                divDetails.appendChild(div_item);
-
-                div_item = document.createElement('div');
-                div_item.className = "div_item";
-                item = document.createElement('h2');
-                item_detail = document.createTextNode('Country:');
-                context = document.createElement('p');
-                context_text = document.createTextNode(country);
-                item.appendChild(item_detail);
-                context.appendChild(context_text);
-                item.appendChild(context);
-                div_item.appendChild(item)
-                divDetails.appendChild(div_item);
-
-
-                div_item = document.createElement('div');
-                div_item.className = "div_item";
-                item = document.createElement('h2');
-                item_detail = document.createTextNode('City:');
-                context = document.createElement('p');
-                context_text = document.createTextNode(city);
-                item.appendChild(item_detail);
-                context.appendChild(context_text);
-                item.appendChild(context);
-                divDetails.appendChild(item);
-
-                div_item = document.createElement('div');
-                div.className = "div_item";
-                item = document.createElement('h2');
-                item_detail = document.createTextNode('Time of obtaining:');
-                context = document.createElement('p');
-                context_text = document.createTextNode(time_obtained);
-                item.appendChild(item_detail);
-                context.appendChild(context_text);
-                item.appendChild(context);
-                divDetails.appendChild(item);
-
-                div_item = document.createElement('div');
-                div.className = "div_item";
-                item = document.createElement('h2');
-                item_detail = document.createTextNode('Object:');
-                context = document.createElement('p');
-                context_text = document.createTextNode(object);
-                item.appendChild(item_detail);
-                context.appendChild(context_text);
-                item.appendChild(context);
-                divDetails.appendChild(item);
-
-                div_item = document.createElement('div');
-                div.className = "div_item";
-                item = document.createElement('h2');
-                item_detail = document.createTextNode('Special mentions:');
-                context = document.createElement('p');
-                context_text = document.createTextNode(mentions);
-                item.appendChild(item_detail);
-                context.appendChild(context_text);
-                item.appendChild(context);
-                divDetails.appendChild(item);
-
-                div.appendChild(divDetails);
-
-                //Append div to modal
-                modal.appendChild(div);
-
-                //Append modal to post-container
-                divContainer.appendChild(modal);
-
-                // Append the div to the div autographs from body
-                document.getElementById("autographs").appendChild(divContainer);
-
-                /*<div class="write-post-container">
-                    
-                    <img src="../images/autograf.webp" alt="autograf" class="post-img" onclick="openDetails()"/>
-                    <div class="post-popup">
-                        <h3 class="details">Details</h3>
-                        <h2>Domain:</h2>
-                        <p>Muzica</p>
-                        <h2>Personality:</h2>
-                        <p>Formatia Rock Beach Boys</p>
-                        <h2>Country:</h2>
-                        <p>details</p>
-                        <h2>City:</h2>
-                        <p>details</p>
-                        <h2>Moment:</h2>
-                        <p>details</p>
-                        <h2>Object:</h2>
-                        <p>Fotografie</p>
-                        <h2>Special montions:</h2>
-                        <p>details</p>
-                    </div>
-                </div>*/
-            }
-        </script>
-
+    <script src="myAccount.js"></script>
+    <div id="autographs" class="main-content">
+        <div  class="autographs-show"></div>
+        <script src="printAutorgraphs.js"></script>
         <?php
-
         $sql = "SELECT * FROM AUTOGRAPHS WHERE USERID=?;";
         $pstmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($pstmt, $sql)) {
@@ -404,7 +245,7 @@ require_once '../includes/connDB.php';
             mysqli_stmt_bind_param($pstmt, "i", $userID);
             mysqli_stmt_execute($pstmt);
             $result = mysqli_stmt_get_result($pstmt);
-            $index = 1;
+            $index = 0;
             while ($row = mysqli_fetch_assoc($result)) {
                 $personality = $row["Personality"];
                 $domain = $row["Domain"];
@@ -415,20 +256,34 @@ require_once '../includes/connDB.php';
                 $time = $row["Time"];
                 $object = $row["Object"];
                 $mentions = $row["Special_mentions"];
-                echo "<script id='feed'> feed_fill('$index', '$path', '$personality', '$domain', '$city', '$country', '$time', '$object', '$mentions'); </script>";
                 $index++;
+                echo "<script> feed_fill('$index', '$path', '$personality', '$domain', '$city', '$country', '$time', '$object', '$mentions'); </script>";
+                echo "\r\n";
             }
         }
         ?>
-    <!--/div-->
-    <div class="profile-info">
-        <div class="info-col"></div>
-        <div class="post-col">
-
-        </div>
     </div>
-    <script src="script.js"></script>
-    <script src="myAccount.js"></script>
+    <script>
+        /*pop-up adaugare autograf*/
+        document.querySelector("#show-addAutograph").addEventListener("click", function() {
+            document.querySelector(".popup").classList.add("active");
+        });
+        document.querySelector(".popup .close-btn").addEventListener("click", function() {
+            document.querySelector(".popup").classList.remove("active");
+        });
+
+        /*meniu logout*/
+        var settingsmenu = document.querySelector(".settings-menu")
+        function menuSettings() {
+            settingsmenu.classList.toggle("settings-menu-height")
+        }
+
+        let popupdetails = document.querySelector(".post-popup")
+        function openDetails() {
+            popupdetails.classList.toggle("open-details");
+        }
+    </script>
+
 </body>
 
 </html>
