@@ -1,17 +1,38 @@
-
 <nav>
     <div class="nav-left">
         <img src="../images/logo.png" alt="logo" class="logo" onclick="window.location.href = '../Main/autographCollector.php';">
         <ul>
             <li><img src="../images/home.png" alt="home" onclick="window.location.href = '../Main/autographCollector.php';"></li>
         </ul>
-    </div> 
+    </div>
+
+    <script>
+        let content = document.getElementById("search-result");
+
+        function showResult(x) {
+            if (x.length == 0) {
+                document.getElementById("search-result").innerHTML = "null";
+            } else {
+                var xmlhttp = new XMLHttpsRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("search-result").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET", "../includes/search.php?name=" + x, true);
+                xmlhttp.send();
+            }
+        }
+    </script>
 
     <div class="nav-right">
         <div class="search-box">
-            <img src="../images/search.png" alt="serch">
-            <input type="text" placeholder="Search">
+            <img src="../images/search.png" alt="search">
+            <form>
+                <input type="text" onkeyup="showResult(this.value)" placeholder="Search">
+            </form>
             <!--ajax cautare autografe dupa nume domeniu/nume autor -->
+
         </div>
 
         <div class="nav-user-icon" onclick="menuSettings()">
@@ -42,8 +63,8 @@
     <!--left-sidebar-->
     <div class="left-sidebar">
         <div class="imp-links">
-            <a href="#" onclick="window.location.href = '../Main/marketplace.php';"><img src="../images/marketplace.png" alt="marketplace"> Marketplace </a>
-            <a href="#" onclick="window.location.href = '../Main/groups.php';"><img src="../images/grup.png" alt="group"> Groups</a>
-            <a href="#" onclick="window.location.href = '../Main/ranking.php';"><img src="../images/top.webp" alt="ranking"> Ranking </a>
+            <a href="#" onclick="window.location.href = 'marketplace.php';"><img src="../images/marketplace.png" alt="marketplace"> Marketplace </a>
+            <a href="#" onclick="window.location.href = 'groups.php';"><img src="../images/grup.png" alt="group"> Groups</a>
+            <a href="#" onclick="window.location.href = 'ranking.php';"><img src="../images/top.webp" alt="ranking"> Ranking </a>
         </div>
     </div>

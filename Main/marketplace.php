@@ -10,6 +10,7 @@ session_start();
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Autograph Collector</title>
   <link rel="stylesheet" href="styleMain.css">
+  <link rel="stylesheet" href="syleMarketplace.css">
 </head>
 
 <body>
@@ -59,7 +60,7 @@ session_start();
       
             echo '<div class="exchange-container">
                         <div class="user-profile">
-                            <img class="post-img" alt="Profile-image" src='.$profileImage.'>
+                            <img class="user-profile-img" alt="Profile-image" src='.$profileImage.'>
                             <div>
                                 <p> '.$userName.' </p>
                             </div>
