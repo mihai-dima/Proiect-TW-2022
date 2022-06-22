@@ -11,27 +11,6 @@ require_once '../includes/connDB.php';
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Autograph Collector</title>
     <link rel="stylesheet" href="styleAutographs.css">
-    <script type="text/javascript" >
-        let content=document.getElementById('content');
-
-        function imu(x){
-            if(x.length==0){
-                content.innerHTML='empty';
-            }
-            else
-            {
-                var XML=new XMLHttpsRequest();
-                XML.onreadystatechange =function(){
-                    if(XML.readyState ==4 && XML.status==200){
-                        content.innerHTML =XML.responseText;
-                    }
-                };
- 
-               XML.open('GET','search.php?q='+x, true);
-               XML.send();
-            }
-        }
-    </script>
 </head>
 
 <body>
