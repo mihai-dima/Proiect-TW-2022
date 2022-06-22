@@ -474,3 +474,12 @@ nav {
         height: 300px;
     }
 }
+
+.content{
+    width: 60%;
+    margin: 2% auto;
+    padding: 1px 7px;
+    text-transform: capitalize;
+    color: #ccc;
+    font-size: 18px;
+}

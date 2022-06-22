@@ -10,8 +10,30 @@
     <div class="nav-right">
         <div class="search-box">
             <img src="../images/search.png" alt="serch">
-            <input type="text" placeholder="Search">
+            <input type="text" onkeyup="imu(this.value)" placeholder="Search">
             <!--ajax cautare autografe dupa nume domeniu/nume autor -->
+            <div id="content">Result </div>
+            <script type="text/javascript" >
+                let contentT=document.getElementById('content');
+        
+                function imu(x){
+                    if(x.length==0){
+                        contentT.innerHTML='empty';
+                    }
+                    else
+                    {
+                        var XML=new XMLHttpsRequest();
+                        XML.onreadystatechange =function(){
+                            if(XML.readyState ==4 && XML.status==200){
+                                contentT.innerHTML =XML.responseText;
+                            }
+                        };
+         
+                       XML.open('GET','search.php?q='+x, true);
+                       XML.send();
+                    }
+                }
+            </script>
         </div>
 
         <div class="nav-user-icon" onclick="menuSettings()">
