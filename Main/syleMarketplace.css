@@ -1,0 +1,70 @@
+.exchange-container {
+    width: 400px;
+    height: 350px;
+    background: #fff;
+    border-radius: 6px;
+    padding: 20px;
+    color: #626262;
+    /*margin-left: 30px;*/
+    margin-top: 20px;
+}
+
+.user-profile {
+    display: flex;
+    padding-top: 0%;
+    padding-left: 1%;
+    align-items: center;
+}
+
+.user-profile-img {
+    width: 12%;
+    height: 12%;
+    border-radius: 50%;
+    margin-right: 20px;
+    margin-top: 1px;
+}
+
+.user-profile p {
+    margin-bottom: -5px;
+    font-weight: 500;
+    font-size: 100%;
+    color: #626262;
+}
+
+.exchange-content {
+    padding-top: 5px;
+    position: relative;
+    /*display: flex;*/
+}
+
+.exchange-give {
+    padding-top: 10px;
+    /*flex-direction: column;*/
+}
+
+.exchange-give p {
+    padding: 10px;
+}
+
+.exchange-receive {
+    padding-top: 10px;
+    /*flex-direction: column;*/
+}
+
+.exchange-receive p {
+    padding: 10px;
+}
+
+button {
+    margin-top: 10px;
+    float: right;
+    padding: 5px 15px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #222;
+    background: #c7c5c5e5;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+}

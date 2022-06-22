@@ -281,7 +281,7 @@ nav {
 .popup .form .form-element input[type="text"] {
     margin-top: 5px;
     display: blocks;
-    width: 100%;
+    width: 50px;
     padding: 10px;
     outline: none;
     border-radius: 5px;

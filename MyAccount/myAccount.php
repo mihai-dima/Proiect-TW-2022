@@ -181,7 +181,7 @@ require_once '../includes/connDB.php';
 
         <!-- formularul de adaugare exchange -->
         <div class="popup">
-            <dialog id="exchange" modal-mode="mega">
+            <dialog id="exchange" class="popup active" modal-mode="mega">
                 <form class="form" action="../includes/addExchange.php" method="post">
                     <header>
                         <h2>Exchange</h2>

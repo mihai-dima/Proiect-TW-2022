@@ -1,34 +1,38 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
 }
-.hero{
-    height:100%;
+
+.hero {
+    height: 100%;
     width: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(back8.jpeg) ;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(back8.jpeg);
     background-position: center;
-    background-size:cover;
-    position:absolute;
+    background-size: cover;
+    position: absolute;
 }
-.form-box{
+
+.form-box {
     width: 380px;
     height: 480px;
     position: relative;
     margin: 6% auto;
     background: rgba(255, 255, 255, 0.8);
     padding: 5px;
-    overflow:hidden;
+    overflow: hidden;
 }
-.button-box{
+
+.button-box {
     width: 220px;
-    height: 35px auto ;
-    position:relative;
+    height: 35px auto;
+    position: relative;
     margin: auto;
     box-shadow: 0 0 20px 9px #0e0a081f;
     border-radius: 30px;
 }
-.toggle-btn{
+
+.toggle-btn {
     padding: 10px 30px;
     cursor: pointer;
     background: transparent;
@@ -36,33 +40,38 @@
     outline: none;
     position: relative;
 }
-#btn{
+
+#btn {
     top: 0;
     left: 0;
-    position:absolute;
+    position: absolute;
     width: 110px;
     height: 100%;
     background: linear-gradient(to right, #958bdf, #bab7d0);
     border-radius: 30px;
     transition: .5s;
- }
- .social-icons{
-        margin: 40px auto;
-        text-align:center;
 }
-.social-icons img{
-    width:80px;
-    margin:0 12px;
-    cursor: pointer ;
-    border-radius:80%;
+
+.social-icons {
+    margin: 40px auto;
+    text-align: center;
 }
-.input-group{
-    top:180px;
+
+.social-icons img {
+    width: 80px;
+    margin: 0 12px;
+    cursor: pointer;
+    border-radius: 80%;
+}
+
+.input-group {
+    top: 180px;
     position: absolute;
     width: 280px;
     transition: .5s;
 }
-.input-field{
+
+.input-field {
     width: 100%;
     padding: 10px 0;
     margin: 5px 0;
@@ -73,7 +82,8 @@
     outline: none;
     background: transparent;
 }
-.submit-btn{
+
+.submit-btn {
     width: 85%;
     padding: 10px 30px;
     cursor: pointer;
@@ -84,18 +94,54 @@
     outline: none;
     border-radius: 30px;
 }
-.chech-box{
-    margin: 30px 10px 30px 0; 
+
+.chech-box {
+    margin: 30px 10px 30px 0;
 }
-span{
-    color:#777;
+
+span {
+    color: #777;
     font-size: 12px;
-    bottom:68px;
+    bottom: 68px;
     position: absolute;
 }
-#login{
+
+#login {
     left: 50px;
 }
-#register{
+
+#register {
     left: 450px;
+}
+
+@media only screen and (max-width: 620px) {
+    .form-box {
+        width: 280px;
+        height: 480px;
+    }
+    .button-box {
+        width: 220px;
+        height: 25px auto;
+    }
+    .button-box button {
+        font-size: 12px;
+    }
+    #btn {
+        width: 115px;
+        height: 100%;
+    }
+    .social-icons img {
+        width: 50px;
+    }
+    .input-field {
+        width: 70%;
+    }
+    .submit-btn {
+        width: 55%;
+        margin-right: 35%;
+    }
+    .input-group p {
+        font-size: 13px;
+        margin-right: 30%;
+    }
 }
