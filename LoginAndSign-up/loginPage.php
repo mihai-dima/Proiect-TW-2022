@@ -19,7 +19,7 @@
                 <button type="button" class="toggle-btn" onclick="register()">Register</button>
              </div>
              <div class="social-icons">
-                <img src="../Home/logo.png" alt="aaa">
+                <img src="../Home/logo.png" alt="logo">
             </div>
             
             <form id="login" class="input-group" action="../includes/login.php" method="post">
@@ -38,7 +38,6 @@
                 ?>
                 <input type="email" class="input-field" name="email" placeholder="Email" required> 
                 <input type="password" class="input-field" name="passwd" placeholder="Password" required> 
-                <input type="checkbox" class="chech-box"><span>Remember Password</span>
                 <button type="submit" name="login_submit" id="login_btn" class="submit-btn">Log in</button>
             </form>
 
