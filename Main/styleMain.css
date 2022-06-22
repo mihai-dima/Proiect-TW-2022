@@ -120,7 +120,7 @@ nav{
 .user-profile{
     display: flex;
     align-items: center;
-    margin: 15px 10;
+    margin: 15px 10px;
 }
 .seeAcount-icon{
     align-items: center;
@@ -146,7 +146,7 @@ nav{
 .settings-links{
     display: flex;
     align-items: center;
-    margin: 15px 10;
+    margin: 15px 10px;
 }
 .logout-icon{
    width: 38px;
