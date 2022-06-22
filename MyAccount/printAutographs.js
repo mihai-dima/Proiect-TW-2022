@@ -30,9 +30,9 @@ function feed_fill(autografID, autografImage, personality, domain, city, country
 
     //Header - autograph name and exit button
     var header = document.createElement('header');
+    header.className="headerStyle";
     var title = document.createElement('h3');
     var textTitle = document.createTextNode(personality);
-    title.className="details";
     title.appendChild(textTitle);
     header.appendChild(title);
 
@@ -42,16 +42,15 @@ function feed_fill(autografID, autografImage, personality, domain, city, country
         this.closest('dialog').close('close')
     };
     closeBtn.appendChild(text);
-    closeBtn.className="close-Btn";
     header.appendChild(closeBtn);
     //Append header to div
     div.appendChild(header);
 
     //content of modal
     var divDetails = document.createElement('div');
+    divDetails.className="details";
     var details = document.createElement('h3');
-    details.className = 'details';
-    var title_details = document.createTextNode(' Details');
+    var title_details = document.createTextNode('Details');
     details.appendChild(title_details);
     divDetails.appendChild(details);
 

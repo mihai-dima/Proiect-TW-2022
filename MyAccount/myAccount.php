@@ -181,11 +181,11 @@ require_once '../includes/connDB.php';
 
         <!-- formularul de adaugare exchange -->
         <div class="popup">
-            <dialog id="exchange" modal-mode="mega">
+            <dialog class="popup active" id="exchange" modal-mode="mega">
                 <form class="form" action="../includes/addExchange.php" method="post">
                     <header>
                         <h2>Exchange</h2>
-                        <button onclick="this.closest('dialog').close('close')"> &times; </button>
+                        <button onclick="this.closest('dialog').close('close')" class="close-btn"> &times; </button>
                     </header>
                     <article>
                         <div class="form-element">
@@ -223,9 +223,11 @@ require_once '../includes/connDB.php';
                             </div>
                         </div>
                     </article>
+                    <div class="form-element">
                     <footer>
                         <button name="submit-form">Confirm</button>
                     </footer>
+                    </div>
                 </form>
             </dialog>
         </div>
