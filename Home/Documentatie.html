@@ -234,10 +234,12 @@
         <p>Meniul din stânga paginii principale conține:</p>
         <ul>
            <li>Marketplace - unde vom putea regăsi toate autografele propuse pentru schimburi</li>
-           <li>Group - aici putem accesa toate autografele pe categorii (ex:sport, politică) </li>
+           <li>Groups - aici putem accesa toate autografele printr-o simplă căutare </li>
            <li>Ranking - oferă clasamente pe domenii ale autografelor, dar și rapoarte ale numărului de autografe</li>
         </ul>
-          <p>Pe profilul personal vom putea vedea toate autografele proprii postate, cât și pe cele primite la schimb.</p>
+          <p>Pe profilul personal vom putea vedea toate autografele proprii postate, numarul acestora, cât și pe cele primite la schimb.
+            Detaliile autografului vor fi afișate printr-un click pe autograf care va deschide o fereastră de popup.
+          </p>
           <p>Pentru a încadra un autograf postat la o categorie ne vom folosi de un formular, aflat în profil, pe care utilizatorul în va completa 
             în momentul în care va realiza postarea. Toate postările vor fi stocate într-o bază de date. 
           </p>
@@ -271,32 +273,83 @@
 
 <section id="system-features" role="app-features">
   <h2>Caracteristicile sistemului</h2>
-  <p>Vor fi adaugate in momentul in care vom incepe partea de back-end.</p>
+  <p> Prima pagina este una introductivă, în care familiarizăm utilizatorul cu scopul aplicației. În aceasta pagina vom avea două butoane care 
+    ne vor redirecționa în pagina de login/ sign-up, respectiv către această documentație.</p>
+  <p> Pagina de login ofera utilizatorului optiunea de a se conecta sau de a crea un cont nou cu ajutorul unei adrese de email
+    si o parolă. 
+  </p>
+  <p> Dupa conectare, utilizatorul este redirectionat in pagina principală, de aici avand posibilitatea de a alege unde dorește să navigheze, folosindu-se
+      de meniu,dar și de bara de activități.</p>
+  <p>Bara de activități conție următoarele funcționalități: </p>
+      <ul>
+        <li> un buton de home ce ne va întoarce la pagina principală</li>
+        <li> o bară de căutare </li>
+        <li> o pictogramă my account care va deschide un alt meniu de unde putem vizualiza profilul, sau putem face logout.</li>
+      </ul>
+      <p>Meniul din stânga paginii principale conține următoarele funcționalități:</p>
+      <ul>
+         <li>Marketplace - unde vom putea regăsi toate autografele propuse pentru schimburi</li>
+         <li>Groups - aici putem accesa toate autografele printr-o simplă căutare </li>
+         <li>Ranking - oferă clasamente pe domenii ale autografelor, dar și rapoarte ale numărului de autografe
+          în diferite formate( RSS, CSV, PDF), acestea venind cu posibilitatea de a fi descărcate.
+         </li>
+      </ul>
+        <p>Pe profilul personal vom putea vedea toate autografele proprii postate, cât și pe cele primite la schimb.
+          Detaliile autografului vor fi afișate printr-un click pe autograf care va deschide o fereastră de popup.
+        </p>
+        <p>Pentru a încadra un autograf postat la o categorie ne vom folosi de un formular, aflat în profil, pe care utilizatorul în va completa 
+          în momentul în care va realiza postarea. Toate postările vor fi stocate într-o bază de date. 
+        </p>
 </section>
 
 <section id="other-nonfunctional-requirments" role="app-requirments">
   <h2>Alte cerinte</h2>
   <section id="performanta5" role="other-nonfunctional-requirments-sections">
     <h3>5.1 Cerinte de performanta</h3>
-    <p> Pentru o buna functionare a aplicatie este nevoie de o conexiune stabila la internet. </p>
+    <p> Pentru o buna functionare a aplicatie este nevoie de o conexiune stabila la internet, aceasta fiind principala sursa de functionare. 
+       O cerință ar fi evitarea supraîncărcării paginilor de cod cu doarte multe functionalități, de asemenea se recomandă
+       o foarte mare atenție asura câmpurilor din baza de date,toate acestea fiind obligatorii pentru a facilita funcționalitatea
+       aplicației și din acest motiv validările câmpurilor sunt obligatorii.
+    </p>
   </section>
   <section id="siguranta5">
     <h3>5.2 Cerinte de siguranta in cadrul aplicatiei </h3>
-    <p>  </p>
+    <p> 
+      Toti utilizatorii trebuie să furnizeze o parolă puternică pentru a evita spargerea contului. Se recomandă
+      ca parola sa nu fie utilizată și în cadrul altor aplicații.     
+    </p>
+    <p>
+      Baza de date reprezinta cea mai importantă componentă a aplicațieie, dar și cea mai predispusă la deteriorare 
+      și din accest motiv criptatrea tuturor datelor este obligatorie pentru o bună securitate a datelor oferite de utilizator.
+    </p>
   </section>
   <section id="securitate5">
     <h3>5.3 Cerinte de securitate </h3>
-    <p>Este recomandat ca utilizatorii sa isi creeze parole puternice, sa nu reutilizeze parole de pe alte site-uri/ aplicatii.</p>
+    <p>
+      Utilizatorii au acces in cont pe baza adresei de email și a parolei furnizate. Uitarea sau pierderea acestor date 
+      duce la pierderea accesului în cont, fără a mai putea fi recuperat. 
+    </p>
+    <p>
+      Furnizarea datelor de conectare altor persoane poate duce la deteriorarea datelor contului.
+    </p>
   </section>
   <section id="calitate5">
     <h3>5.4 Atribute de calitate software </h3>
-    <p> </p>
+    <p>
+      Aplicația este disponibilă atat pe versiunea mobilă cât și pe versiunea dekstop, iar acest lucru înseamnă că interfața necesită
+      adaptată constant la ambele categorii de cerințe.    
+    </p>
+    <p>
+      Pentru o bună funcționare pe toate sistemele de operare, aplicația nu trebuie să conțină limitări și din acest motiv
+      nu se recomandă utilizarea framework-urilor.
+    </p>
   </section>
 </section>
 
 <section id="AppendixA" role="analysis-models">
   <h2>Anexa A</h2>
-  <h3>Diagrama UML</h3>
+  <h3>Diagrama use case</h3>
+  <img src="../diagrama_use-case.png" alt="diagrama">
 
 </section>
 
